@@ -1,6 +1,7 @@
 ﻿#ifndef _PEOPLE_H_
 #define _PEOPLE_H_
-
+#include "cVehicle.h"
+#include "cAnimal.h"
 class CPEOPLE {
 	int mX, mY;
 	bool mState; //Trạng thái sống chết

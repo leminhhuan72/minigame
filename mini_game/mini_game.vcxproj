@@ -143,7 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAnimal.h" />
+    <ClInclude Include="cBird.h" />
+    <ClInclude Include="cCar.h" />
+    <ClInclude Include="cDinosour.h" />
+    <ClInclude Include="cGame.h" />
     <ClInclude Include="cPeople.h" />
+    <ClInclude Include="cTruck.h" />
     <ClInclude Include="cVehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
