@@ -2,6 +2,8 @@
 #define _VEHICLE_H_
 
 #include "cAnimal.h"
+#include "cCar.h"
+#include "cTruck.h"
 class CVEHICLE {
 	int mX, mY;
 	

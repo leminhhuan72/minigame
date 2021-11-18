@@ -1,10 +1,13 @@
 ﻿#ifndef _GAME_H
 #define _GAME_H 
 #include "cAnimal.h"
+#include "cPeople.h"
+#include "cVehicle.h"
+#include <iostream>
 class CGAME {
 	CTRUCK* axt;
 	CCAR* axh;
-	CDINAUSOR* akl;
+	CDINOSOUR* akl;
 	CBIRD* ac;
 	CPEOPLE cn;
  public:
@@ -17,8 +20,8 @@ class CGAME {
 	void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
 	void exitGame(HANDLE); // Thực hiện thoát Thread
 	void startGame(); // Thực hiện bắt đầu vào trò chơi
-	void loadGame(istream); // Thực hiện tải lại trò chơi đã lưu
-	void saveGame(istream); // Thực hiện lưu lại dữ liệu trò chơi
+	void loadGame(istream&); // Thực hiện tải lại trò chơi đã lưu
+	void saveGame(istream&); // Thực hiện lưu lại dữ liệu trò chơi
 	void pauseGame(HANDLE); // Tạm dừng Thread
 	void resumeGame(HANDLE); //Quay lai Thread
 	void updatePosPeople(char); //Thực hiện điều khiển di chuyển của CPEOPLE
