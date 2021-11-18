@@ -3,12 +3,12 @@
 #include "cAnimal.h"
 #include "cPeople.h"
 #include "cVehicle.h"
+#include "graphicHelp.h"
+#include <vector>
 #include <iostream>
 class CGAME {
-	CTRUCK* axt;
-	CCAR* axh;
-	CDINOSOUR* akl;
-	CBIRD* ac;
+	vector<CVEHICLE*> vehicleList;
+	vector<CANIMAL*> animalList;
 	CPEOPLE cn;
  public:
 	CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
