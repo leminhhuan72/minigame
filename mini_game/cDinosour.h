@@ -1,13 +1,12 @@
-﻿#ifndef _DINOSOUR_H_
+﻿
+#ifndef _DINOSOUR_H_
 #define _DINOSOUR_H_
-#include "cVehicle.h"
-#include "cAnimal.h"
-class CDINOSOUR: public CANIMAL{
-	int mX, mY;
-	bool mState; //Trạng thái sống chết
+#include "Objects.h"
+class dinosour : public Objects {
+
+
 public:
-	CDINOSOUR();
-	
+	dinosour();
 };
 
 #endif // !1

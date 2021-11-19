@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="multiThread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAnimal.h" />
@@ -150,6 +151,8 @@
     <ClInclude Include="cPeople.h" />
     <ClInclude Include="cTruck.h" />
     <ClInclude Include="cVehicle.h" />
+    <ClInclude Include="graphicHelp.h" />
+    <ClInclude Include="multiThread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

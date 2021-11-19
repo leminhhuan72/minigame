@@ -1,13 +1,11 @@
 ﻿#include "multiThread.h"
-void exitGame(thread* t)
-{
-	system(“cls”);
+void exitGame(thread* t) {
+	system("cls");
 	IS_RUNNING = false;
 	t->join();
 
 }
-void SubThread()
-{
+void SubThread(){
 	while (IS_RUNNING) {
 		if (!cg.getPeople().isDead()) //Nếu người vẫn còn sống
 		{

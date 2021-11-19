@@ -1,12 +1,12 @@
+
 #ifndef _TRUCK_H_
 #define _TRUCK_H_
-#include "cVehicle.h"
-#include "cAnimal.h"
-class CTRUCK : CVEHICLE{
-	
+#include "Objects.h"
+class truck : public Objects {
+
+
 public:
-	CTRUCK();
-	void Move(int, int);
+	truck();
 };
 
 #endif // !1

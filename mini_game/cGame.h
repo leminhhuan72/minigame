@@ -6,7 +6,7 @@
 #include "graphicHelp.h"
 #include <vector>
 #include <iostream>
-class CGAME {
+/*class CGAME {
 	vector<CVEHICLE*> vehicleList;
 	vector<CANIMAL*> animalList;
 	CPEOPLE cn;
@@ -30,5 +30,5 @@ class CGAME {
 
 };
 
-
+*/
 #endif

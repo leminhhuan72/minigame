@@ -1,12 +1,10 @@
 ﻿#ifndef _PEOPLE_H_
 #define _PEOPLE_H_
-#include "cVehicle.h"
-#include "cAnimal.h"
-class CPEOPLE {
-	int mX, mY;
-	bool mState; //Trạng thái sống chết
+#include "Entity.h"
+class people: public Entity{
+	bool isDead; //Trạng thái sống chết
 public:
-	CPEOPLE();
+	people();
 	void Up(int);
 	void Left(int);
 	void Right(int);

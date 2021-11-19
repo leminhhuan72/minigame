@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="multiThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cPeople.h">
@@ -42,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="multiThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicHelp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,12 @@
+
 #ifndef _CAR_H_
 #define _CAR_H_
-#include "cVehicle.h"
-#include "cAnimal.h"
-class CCAR : CVEHICLE {
+#include "Objects.h"
+class car  : public Objects {
+
 
 public:
-	CCAR();
-	void Move(int, int);
+	car();
 };
 
 #endif // !1

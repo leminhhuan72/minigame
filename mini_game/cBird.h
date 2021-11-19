@@ -1,13 +1,12 @@
 
 #ifndef _BIRD_H_
 #define _BIRD_H_
-#include "cVehicle.h"
-#include "cAnimal.h"
-class CBIRD: public CANIMAL {
-	int mX, mY;
+#include "Objects.h"
+class bird: public Objects {
+	
 	
 public:
-	CBIRD();
+	bird();
 };
 
 #endif // !1
