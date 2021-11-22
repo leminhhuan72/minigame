@@ -13,6 +13,8 @@ public:
 	bool isImpact(const CANIMAL*&);
 	bool isFinish();
 	bool isDead();
+	~people();
+	string type_name();
 };
 
 #endif // !1

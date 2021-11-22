@@ -139,20 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="multiThread.cpp" />
+    <ClCompile Include="pixel.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="random.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cAnimal.h" />
     <ClInclude Include="cBird.h" />
     <ClInclude Include="cCar.h" />
     <ClInclude Include="cDinosour.h" />
     <ClInclude Include="cGame.h" />
     <ClInclude Include="cPeople.h" />
     <ClInclude Include="cTruck.h" />
-    <ClInclude Include="cVehicle.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="graphicHelp.h" />
     <ClInclude Include="multiThread.h" />
+    <ClInclude Include="Objects.h" />
+    <ClInclude Include="pixel.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

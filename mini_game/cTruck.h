@@ -7,6 +7,7 @@ class truck : public Objects {
 
 public:
 	truck();
+	string type_name();
 };
 
 #endif // !1

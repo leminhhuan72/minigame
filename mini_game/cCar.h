@@ -7,6 +7,7 @@ class car  : public Objects {
 
 public:
 	car();
+	string type_name();
 };
 
 #endif // !1
