@@ -139,6 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CBird.cpp" />
+    <ClCompile Include="CCar.cpp" />
+    <ClCompile Include="CDinosour.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="CPeople.cpp" />
+    <ClCompile Include="CTruck.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="multiThread.cpp" />
@@ -151,6 +157,7 @@
     <ClInclude Include="cCar.h" />
     <ClInclude Include="cDinosour.h" />
     <ClInclude Include="cGame.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="cPeople.h" />
     <ClInclude Include="cTruck.h" />
     <ClInclude Include="Entity.h" />

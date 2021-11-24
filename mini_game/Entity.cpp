@@ -10,8 +10,8 @@ Entity::Entity(Point _location) : location(_location) {};
 bool Entity::collide(shared_ptr<Entity> other) {
 	/*
 	* if an entity (people) collide to another entity ( vehicle ,animal ,...) 
-	* then return false 
-	* else return true		
+	* then return true 
+	* else return false 		
 	*/
 	for (int i = 0; i < other->pixels.size(); i++)
 		for (int j = 0; j < pixels.size(); j++) {

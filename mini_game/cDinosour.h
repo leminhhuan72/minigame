@@ -7,6 +7,8 @@ class dinosour : public Objects {
 
 public:
 	dinosour();
+	~dinosour();
+	string type_name();
 };
 
 #endif // !1
