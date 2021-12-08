@@ -13,4 +13,4 @@ void exitGame(thread* t);     //
 void SubThread();
 
 
-#endif
+#endif _THREAD_H_
