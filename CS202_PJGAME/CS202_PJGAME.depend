@@ -210,3 +210,202 @@
 	<iostream>
 	<Windows.h>
 
+1576602012 source:d:\github\minigame\cs202_pjgame\bird.cpp
+	"bird.h"
+	"console.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\bird.h
+	"obstacle.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\obstacle.h
+	"entity.h"
+	<memory>
+
+1640262994 d:\github\minigame\cs202_pjgame\entity.h
+	"pixel.h"
+	<vector>
+	<string>
+	<memory>
+
+1576602012 d:\github\minigame\cs202_pjgame\pixel.h
+	"point.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\point.h
+	<fstream>
+
+1576602012 d:\github\minigame\cs202_pjgame\console.h
+	<iostream>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\bus.cpp
+	"bus.h"
+	"console.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\bus.h
+	"obstacle.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\car.cpp
+	"car.h"
+	"console.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\car.h
+	"obstacle.h"
+
+1640263195 source:d:\github\minigame\cs202_pjgame\console.cpp
+	"console.h"
+	<Windows.h>
+	<mmsystem.h>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\dinosaur.cpp
+	"dinosaur.h"
+	"console.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\dinosaur.h
+	"obstacle.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\entity.cpp
+	"entity.h"
+	"console.h"
+	<iostream>
+	<string>
+	<fstream>
+	<cmath>
+	<vector>
+	"random.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\random.h
+
+1576602012 source:d:\github\minigame\cs202_pjgame\game_level.cpp
+	"game_level.h"
+	<algorithm>
+	<iostream>
+	<string>
+
+1576602012 d:\github\minigame\cs202_pjgame\game_level.h
+	"game_map.h"
+	"player.h"
+	<memory>
+
+1576602012 d:\github\minigame\cs202_pjgame\game_map.h
+	"lane.h"
+	<memory>
+	<vector>
+	"player.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\lane.h
+	"window.h"
+	"obstacle.h"
+	"player.h"
+	<vector>
+	<memory>
+	<thread>
+
+1576602012 d:\github\minigame\cs202_pjgame\window.h
+	<iostream>
+	"point.h"
+	"console.h"
+	"entity.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\player.h
+	"entity.h"
+	"point.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\game_map.cpp
+	<algorithm>
+	"game_map.h"
+	"random.h"
+	"railway.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\railway.h
+	"lane.h"
+
+1640269671 source:d:\github\minigame\cs202_pjgame\game_state.cpp
+	"game_state.h"
+	<Windows.h>
+
+1576602012 d:\github\minigame\cs202_pjgame\game_state.h
+	"game_level.h"
+	<memory>
+	<string>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\lane.cpp
+	"lane.h"
+	"random.h"
+	<string>
+	<Windows.h>
+	"railway.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\main.cpp
+	<iostream>
+	<memory>
+	"main_system.h"
+	"window.h"
+	<Windows.h>
+
+1576602012 d:\github\minigame\cs202_pjgame\main_system.h
+	"game_state.h"
+	"menu.h"
+	<memory>
+
+1576602012 d:\github\minigame\cs202_pjgame\menu.h
+	"window.h"
+	<vector>
+	<conio.h>
+
+1640269557 source:d:\github\minigame\cs202_pjgame\main_system.cpp
+	"main_system.h"
+	"Windows.h"
+	<conio.h>
+	<iostream>
+	<memory>
+	<thread>
+	<mutex>
+	"console.h"
+	"random.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\menu.cpp
+	"menu.h"
+	<algorithm>
+	<iostream>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\obstacle.cpp
+	"obstacle.h"
+	"car.h"
+	"bird.h"
+	"bus.h"
+	"truck.h"
+	"dinosaur.h"
+
+1576602012 d:\github\minigame\cs202_pjgame\truck.h
+	"obstacle.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\pixel.cpp
+	"pixel.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\player.cpp
+	"player.h"
+	<vector>
+	<iostream>
+	"console.h"
+	<Windows.h>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\point.cpp
+	"point.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\railway.cpp
+	"railway.h"
+	<Windows.h>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\random.cpp
+	"random.h"
+	<ctime>
+	<random>
+
+1576602012 source:d:\github\minigame\cs202_pjgame\truck.cpp
+	"truck.h"
+	"console.h"
+
+1576602012 source:d:\github\minigame\cs202_pjgame\window.cpp
+	"window.h"
+	<iostream>
+	<Windows.h>
+

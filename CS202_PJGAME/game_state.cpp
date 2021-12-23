@@ -2,7 +2,7 @@
 #include <Windows.h>
 Game_state::Game_state()
 {
-	set_pos({ 1, 1 }, { 44, 150 });
+	set_pos({ 1, 1 }, { 44, 120 });
 	current_level = std::make_shared<Game_level>();
 }
 
@@ -20,7 +20,7 @@ void Game_state::level_up()
 	current_level->init();
 	current_level->render();
 
-	// Message 
+	// Message
 }
 
 void Game_state::play_again()
@@ -29,7 +29,7 @@ void Game_state::play_again()
 	current_level->init();
 	current_level->render();
 	//Sleep(2000);
-	// Message 
+	// Message
 }
 
 
@@ -62,7 +62,7 @@ void Game_state::render_box()
 void Game_state::import_from_file(const std::string& file_path)
 {
 	std::ifstream fi;
-	fi.open(file_path); 
+	fi.open(file_path);
 	current_level->import_from_file(fi);
 	fi.close();
 }
@@ -70,7 +70,7 @@ void Game_state::import_from_file(const std::string& file_path)
 void Game_state::export_to_file(const std::string& file_path)
 {
 	std::ofstream fo;
-	fo.open(file_path); 
+	fo.open(file_path);
 	current_level->export_to_file(fo);
 	fo.close();
 }

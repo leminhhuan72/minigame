@@ -16,7 +16,7 @@ void Game_module::show_main()
 	Menu menu;
 	while (true) {
 		Console::clear_screen();
-		menu.set_pos({ 1, 10 }, { 40, 160 });
+		menu.set_pos({ 1, 1 }, { 40, 150 });
 		menu.load_menu();
 		switch (menu.get_input()) {
 		case MENU_NAME::NEW_GAME:
@@ -41,7 +41,7 @@ int Game_module::show_pause_menu()
 {
 	Menu menu(0);
 	Console::clear_screen();
-	menu.set_pos({ 1, 10 }, { 40, 160 });
+	menu.set_pos({ 1, 1 }, { 40, 150 });
 	menu.load_menu();
 	int choose = menu.get_input();
 	switch (choose) {
@@ -97,7 +97,7 @@ void Game_module::start_game(std::shared_ptr<Game_state> start_state)
 
 	bool need_render_again = false;
 
-	auto main_game_loop = [&](char &ch) //char input 
+	auto main_game_loop = [&](char &ch) //char input
 	{
 		while (true) {
 			{
@@ -140,7 +140,7 @@ void Game_module::start_game(std::shared_ptr<Game_state> start_state)
 			return;
 		case 'p':
 			// Pause menu
-		case ESC: 
+		case ESC:
 			// Pause menu
 			if (!Console::status()) {
 				break;
