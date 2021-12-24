@@ -21,9 +21,11 @@ public:
         cur = 0;
         color = 8;
     }
-    void draw();
+    void draw(windowCanvas &windowCanvas);
     void moveTo(int x, int y){
-        Object::moveTo(x, y);
+        if (this->x + x >=1 && this->x + this->w + x < 144 &&
+                this->y + y >=1 && this->y + this->h + y < 43)
+            Object::moveTo(x, y);
         cur = (cur+1)%(int(sprite.size()));
     }
 };

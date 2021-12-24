@@ -1,10 +1,7 @@
 #include "Player.h"
 
-void Player::draw(){
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, color);
+void Player::draw(windowCanvas &windowCanvas){
     for (int i=0; i<h; ++i){
-        GotoXY(x, y+i);
-        cout << sprite[cur][i];
+        windowCanvas.draw(x, y+i, sprite[cur][i], color);
     }
 }

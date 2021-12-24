@@ -1,31 +1,39 @@
 #include "Highway.h"
 
-void Highway::draw(){
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, color);
-    GotoXY(0, y);
-    for (int i=0;i<140;++i)
-        cout << "#";
-    GotoXY(0, y+10);
-    for (int i=0;i<140;++i)
-        cout << "#";
-    for (auto u: lst){
-        u->draw();
+void Highway::draw(windowCanvas &windowCanvas){
+    //draw Light
+    windowCanvas.draw(141, y, to_string(int(curTime)), (status? 10: 12));
+
+    for (int i=0;i<138;++i){
+        windowCanvas.draw(2+i, y, '-', color);
     }
-    GotoXY(141, y);
-    if (status)
-        SetConsoleTextAttribute(hConsole, 10);
-    else
-        SetConsoleTextAttribute(hConsole, 12);
-    cout << int(timer);
+    for (int i=0;i<138;++i){
+        windowCanvas.draw(2+i, y+6, '-', color);
+    }
+
+    for (auto u: lst){
+        u->draw(windowCanvas);
+    }
+}
+
+void Highway::isImpact(Object*& u){
+    isImp |= u->isImpactY(y) || u->isImpactY(y+6) || u->isImpactY(y+3);
+}
+
+bool Highway::isUpdate(){
+    if (isUp){
+        isUp = false;
+        return true;
+    }
+    return false;
 }
 
 void Highway::update(double t){
     t/=CLOCKS_PER_SEC;
-    timer -= t;
-    if (timer <= 0){
+    curTime -= t;
+    if (curTime <= 0){
         status = !status;
-        timer = 7;
+        curTime = timer;
         timepass = 0.4;
     }
     if (status){
@@ -35,6 +43,14 @@ void Highway::update(double t){
             for (auto u: lst){
                 u->moveTo(x, 0);
             }
+            isUp = true;
         }
     }
+}
+
+bool Highway::checkImpact(Object*& u){
+    for (auto v: lst)
+        if (v->isImpact(u))
+            return true;
+    return false;
 }

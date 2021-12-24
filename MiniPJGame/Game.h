@@ -15,21 +15,27 @@ using namespace std;
 
 class Game{
     double delta, timepass;
-    int width, height;
+    int width, height, level;
+    string playerName;
+    windowCanvas windowCanvas;
 public:
-    Game(){
-        width = 140;
-        height = 40;
-        delta = CLOCKS_PER_SEC/1;
+    Game():windowCanvas(){
+        width = 145;
+        height = 44;
         timepass = 0;
+        level = 0;
         FixConsoleWindow();
-        clearScreen();
+//        clearScreen(1, 1, width, height);
     }
     void startGame();
     int showMenu();
     void start();
     void loadGame();
     void setting();
+    void showEnding();
+    string getPlayerName();
+    bool checkImpact(vector<Highway> &wayLst, Object*& u);
+    vector<Highway> buildLevel(int u);
 };
 
 #endif // _Game_

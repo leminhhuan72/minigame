@@ -5,6 +5,7 @@
 #include "Player.h"
 #include <vector>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -12,19 +13,28 @@ class Highway{
 private:
     vector<Object* > lst;
     int y, x; // y position, x = direct 1, -1
-    int color;
-    double timer, timepass;
+    int color, dis;
+    bool isUp;
+    double timer, timepass, curTime;
     bool status; // true - green, false - red
+    bool isImp;
 public:
-    Highway(int x, int y):y(y), x(x){
-        color = 16;
-        timer = 7;
+    Highway(int x, int y, int w):y(y), x(x), dis(ceil(9*pow(1.4, w))){
+        color = 7;
+        timer = rand()%3+4;
+        curTime = timer;
         status = true;
         timepass = 0.3;
-        lst.push_back(new Player(140, y+2));
+        for (int i = 3; i<160; i+=dis)
+            lst.push_back(new Player(i, y+2));
+        isUp = true;
+        isImp = true;
     }
-    void draw();
+    void draw(windowCanvas &windowCanvas);
     void update(double t);
+    bool isUpdate();
+    void isImpact(Object*& u);
+    bool checkImpact(Object*& u);
 };
 
 
