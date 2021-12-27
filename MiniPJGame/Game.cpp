@@ -65,7 +65,7 @@ int Game::showMenu(){
 vector<Highway> Game::buildLevel(int u){
     vector<Highway> a;
     int lane = u/3 +1 ;
-    int dis = 3-u%3;
+    int dis = u%3;
     for (int i=0;i<lane; ++i)
         a.emplace_back((i&1?1:-1), 8+i*7, dis);
     return a;
@@ -113,7 +113,7 @@ string Game::getPlayerName(){
             windowCanvas.draw(i, j, ' ', 7);
     }
     int startRow = height/2 -1;
-    windowCanvas.draw(30, startRow, "Enter your name (Enter to finish)\n", 10);
+    windowCanvas.draw(20, startRow, "Enter your name (Enter to finish): ", 10);
     windowCanvas.drawScreen();
     int tmp;
     do{
@@ -124,7 +124,8 @@ string Game::getPlayerName(){
             }else
                 windowCanvas.draw(i, j, ' ', 7);
         }
-        windowCanvas.draw(30, startRow, "Enter your name (Enter to finish)\n", 10);
+        windowCanvas.draw(20, startRow, "Enter your name (Enter to finish): ", 10);
+        GotoXY(55+int(name.size()), startRow);
         tmp = getch();
         if (tmp == 13)
             break;
@@ -134,7 +135,7 @@ string Game::getPlayerName(){
                 name.pop_back();
         }else
             name.push_back(char(tmp));
-        windowCanvas.draw(30, startRow+1, name, 13);
+        windowCanvas.draw(55, startRow, name, 13);
         windowCanvas.drawScreen();
     }while(true);
     return name;

@@ -19,7 +19,7 @@ private:
     bool status; // true - green, false - red
     bool isImp;
 public:
-    Highway(int x, int y, int w):y(y), x(x), dis(ceil(9*pow(1.4, w))){
+    Highway(int x, int y, int w):y(y), x(x), dis(24-w*3){
         color = 7;
         timer = rand()%3+4;
         curTime = timer;

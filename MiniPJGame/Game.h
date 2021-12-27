@@ -20,12 +20,11 @@ class Game{
     windowCanvas windowCanvas;
 public:
     Game():windowCanvas(){
+        FixConsoleWindow();
         width = 145;
         height = 44;
         timepass = 0;
         level = 0;
-        FixConsoleWindow();
-//        clearScreen(1, 1, width, height);
     }
     void startGame();
     int showMenu();
