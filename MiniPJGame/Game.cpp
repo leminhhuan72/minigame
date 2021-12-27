@@ -215,6 +215,7 @@ void Game::start(){
 //        cout << tmp << endl;
         if (isPause){
             if (tmp == 121){
+                windowCanvas.clearScreen();
                 windowCanvas.setLim(0,0, width, height);
                 wayLst.clear();
                 wayLst = buildLevel(level);
