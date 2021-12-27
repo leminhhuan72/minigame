@@ -97,11 +97,11 @@ bool Game::showEnding(){
         windowCanvas.draw(startCol, startRow+i, a[i], 15);
     }
     windowCanvas.drawScreen();
-    int tmp;
-    do{
-        tmp = getch();
-    }while(tmp != 27 &&tmp!=121);   //check choice : esc or yes to replay this level
-    if(tmp==121)return true;
+//    int tmp;
+//    do{
+//        tmp = getch();
+//    }while(tmp != 27 &&tmp!=121);   //check choice : esc or yes to replay this level
+//    if(tmp==121)return true;
     return false;
 }
 
@@ -166,8 +166,13 @@ void Game::start(){
     int tmp;
     timepass = 0;
     double timing = 0;
+    bool isPause = false;
     auto updateGame = [&](){
         while(isRunning){
+            if (isPause){
+                showEnding();
+                continue;
+            }
             /// update level
             if (p->isImpactY(4)){
                 ++level;
@@ -178,8 +183,8 @@ void Game::start(){
             }
             /// check impact
             if (checkImpact(wayLst, p)){
-                isRunning = false;
-                break;
+                isPause = true;
+                continue;;
             }
             for (int i=1;i<width-1;++i)
             for (int j=1;j<height-1;++j){
@@ -208,6 +213,20 @@ void Game::start(){
     while(isRunning){
         tmp = getch();
 //        cout << tmp << endl;
+        if (isPause){
+            if (tmp == 121){
+                windowCanvas.setLim(0,0, width, height);
+                wayLst.clear();
+                wayLst = buildLevel(level);
+                delete p;
+                p = new Player(70, 39);
+                isPause = false;
+            }else
+            if (tmp == 27){
+                isRunning = false;
+                break;
+            }
+        }else
         if (tmp == 80){
             p->moveTo(0, 1);
         }else
@@ -222,7 +241,7 @@ void Game::start(){
         }
     }
     t1.join();
-    if(showEnding())start();
+//    if(showEnding())start();
 }
 
 void Game::loadGame(){
