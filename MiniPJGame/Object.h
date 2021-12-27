@@ -2,6 +2,7 @@
 #define _Object_
 
 #include "windowControl.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -17,6 +18,9 @@ public:
     bool isUpdate();
     bool isImpactX(int x);
     bool isImpactY(int y);
+    char revChar(char z);
+    int getWidth();
+    int getX();
     virtual void draw(windowCanvas &windowCanvas) = 0;
 };
 

@@ -2,14 +2,14 @@
 
 void Highway::draw(windowCanvas &windowCanvas){
     //draw Light
-    windowCanvas.draw(141, y, to_string(int(curTime)), (status? 10: 12));
 
-    for (int i=0;i<138;++i){
+    for (int i=0;i<142;++i){
         windowCanvas.draw(2+i, y, '-', color);
     }
-    for (int i=0;i<138;++i){
+    for (int i=0;i<142;++i){
         windowCanvas.draw(2+i, y+6, '-', color);
     }
+    windowCanvas.draw(139, y, "[" + to_string(int(curTime)) + "]", (status? 10: 12));
 
     for (auto u: lst){
         u->draw(windowCanvas);
@@ -42,6 +42,18 @@ void Highway::update(double t){
             timepass = 0.4;
             for (auto u: lst){
                 u->moveTo(x, 0);
+            }
+            for (int i=0, ii=lst.size(); i<ii; ++i)
+            if (lst[i]->getX() + lst[i]->getWidth() < 0){
+                swap(lst[i], lst.back());
+                delete lst.back();
+                lst.pop_back();
+                int tmp = 0;
+                for (auto v: lst)
+                    tmp = max(tmp, v->getX() + v->getWidth());
+                lst.push_back(new Dino(tmp+dis, y+2, x==-1));
+                assert(int(lst.size()) == 7);
+                break;
             }
             isUp = true;
         }

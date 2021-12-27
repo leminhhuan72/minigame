@@ -3,6 +3,7 @@
 
 #include "Object.h"
 #include "Player.h"
+#include "Dino.h"
 #include <vector>
 #include <ctime>
 #include <cmath>
@@ -19,14 +20,16 @@ private:
     bool status; // true - green, false - red
     bool isImp;
 public:
-    Highway(int x, int y, int w):y(y), x(x), dis(24-w*3){
+    Highway(int x, int y, int w):y(y), x(x), dis(14-w*2){
         color = 7;
-        timer = rand()%3+4;
+        timer = rand()%3+5;
         curTime = timer;
         status = true;
         timepass = 0.3;
-        for (int i = 3; i<160; i+=dis)
-            lst.push_back(new Player(i, y+2));
+        for (int i = 3; i<200;){
+            lst.push_back(new Dino(i, y+2, x==-1));
+            i += lst.back()->getWidth() + dis;
+        }
         isUp = true;
         isImp = true;
     }
