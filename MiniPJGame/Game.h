@@ -31,10 +31,11 @@ public:
     void start();
     void loadGame();
     void setting();
-    void showEnding();
+    bool showEnding();
     string getPlayerName();
     bool checkImpact(vector<Highway> &wayLst, Object*& u);
     vector<Highway> buildLevel(int u);
+    void drawBox(); //
 };
 
 #endif // _Game_

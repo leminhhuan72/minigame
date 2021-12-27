@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # depslib dependency file v1.0
 1640339695 source:d:\github\minipjgame\windowcontrol.cpp
 	"windowControl.h"
@@ -133,3 +134,204 @@
 1640339695 source:d:\github\minigame\minipjgame\windowcontrol.cpp
 	"windowControl.h"
 
+=======
+# depslib dependency file v1.0
+1640339695 source:d:\github\minipjgame\windowcontrol.cpp
+	"windowControl.h"
+
+1640339698 d:\github\minipjgame\windowcontrol.h
+	"pixel.h"
+	"windows.h"
+	<cstring>
+	<conio.h>
+	<string>
+	<iostream>
+	<string>
+	<vector>
+
+1640339325 source:d:\github\minipjgame\main.cpp
+	<iostream>
+	"Game.h"
+	<ctime>
+
+1640341711 d:\github\minipjgame\game.h
+	<ctime>
+	"Object.h"
+	"Player.h"
+	"windowControl.h"
+	"Highway.h"
+	<thread>
+	<vector>
+	<conio.h>
+	<iostream>
+
+1640343677 source:d:\github\minipjgame\game.cpp
+	"Game.h"
+
+1640270142 d:\github\minipjgame\pixel.h
+	"point.h"
+
+1640267349 d:\github\minipjgame\point.h
+	<fstream>
+
+1640270349 source:d:\github\minipjgame\pixel.cpp
+	"pixel.h"
+
+1640267351 source:d:\github\minipjgame\point.cpp
+	"point.h"
+
+1640336254 source:d:\github\minipjgame\player.cpp
+	"Player.h"
+
+1640342920 source:d:\github\minipjgame\object.cpp
+	"Object.h"
+
+1640343472 d:\github\minipjgame\object.h
+	"windowControl.h"
+
+1640337965 d:\github\minipjgame\player.h
+	"Object.h"
+	<vector>
+
+1640342745 source:d:\github\minipjgame\highway.cpp
+	"Highway.h"
+
+1640342237 d:\github\minipjgame\highway.h
+	"Object.h"
+	"Player.h"
+	<vector>
+	<ctime>
+	<cmath>
+
+1640343677 source:d:\github\minigame\minipjgame\game.cpp
+	"Game.h"
+
+1640341711 d:\github\minigame\minipjgame\game.h
+	<ctime>
+	"Object.h"
+	"Player.h"
+	"windowControl.h"
+	"Highway.h"
+	<thread>
+	<vector>
+	<conio.h>
+	<iostream>
+
+1640343472 d:\github\minigame\minipjgame\object.h
+	"windowControl.h"
+
+1640339698 d:\github\minigame\minipjgame\windowcontrol.h
+	"pixel.h"
+	"windows.h"
+	<cstring>
+	<conio.h>
+	<string>
+	<iostream>
+	<string>
+	<vector>
+
+1640270142 d:\github\minigame\minipjgame\pixel.h
+	"point.h"
+
+1640267349 d:\github\minigame\minipjgame\point.h
+	<fstream>
+
+1640337965 d:\github\minigame\minipjgame\player.h
+	"Object.h"
+	<vector>
+
+1640342237 d:\github\minigame\minipjgame\highway.h
+	"Object.h"
+	"Player.h"
+	<vector>
+	<ctime>
+	<cmath>
+
+1640342745 source:d:\github\minigame\minipjgame\highway.cpp
+	"Highway.h"
+
+1640339325 source:d:\github\minigame\minipjgame\main.cpp
+	<iostream>
+	"Game.h"
+	<ctime>
+
+1640342920 source:d:\github\minigame\minipjgame\object.cpp
+	"Object.h"
+
+1640270349 source:d:\github\minigame\minipjgame\pixel.cpp
+	"pixel.h"
+
+1640336254 source:d:\github\minigame\minipjgame\player.cpp
+	"Player.h"
+
+1640267351 source:d:\github\minigame\minipjgame\point.cpp
+	"point.h"
+
+1640339695 source:d:\github\minigame\minipjgame\windowcontrol.cpp
+	"windowControl.h"
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\highway.cpp
+	"Highway.h"
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\highway.h
+	"Object.h"
+	"Player.h"
+	<vector>
+	<ctime>
+	<cmath>
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\object.h
+	"windowControl.h"
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\windowcontrol.h
+	"pixel.h"
+	"windows.h"
+	<cstring>
+	<conio.h>
+	<string>
+	<iostream>
+	<string>
+	<vector>
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\pixel.h
+	"point.h"
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\point.h
+	<fstream>
+
+1640411063 d:\source_cpp\cs202\minigame\minipjgame\player.h
+	"Object.h"
+	<vector>
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\main.cpp
+	<iostream>
+	"Game.h"
+	<ctime>
+
+1640423906 d:\source_cpp\cs202\minigame\minipjgame\game.h
+	<ctime>
+	"Object.h"
+	"Player.h"
+	"windowControl.h"
+	"Highway.h"
+	<thread>
+	<vector>
+	<conio.h>
+	<iostream>
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\object.cpp
+	"Object.h"
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\pixel.cpp
+	"pixel.h"
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\player.cpp
+	"Player.h"
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\point.cpp
+	"point.h"
+
+1640411063 source:d:\source_cpp\cs202\minigame\minipjgame\windowcontrol.cpp
+	"windowControl.h"
+
+>>>>>>> 31571dca22252be7ca5abb11b4ba2c136a20ee0e

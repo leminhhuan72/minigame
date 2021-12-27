@@ -5,6 +5,7 @@ void Game::startGame(){
     do{
         switch (showMenu()){
         case 0:
+            playerName = getPlayerName();
             start();
             break;
         case 1:
@@ -78,7 +79,7 @@ bool Game::checkImpact(vector<Highway> &wayLst, Object*& u){
     return false;
 }
 
-void Game::showEnding(){
+bool Game::showEnding(){
     windowCanvas.resetLim();
     for (int i=0;i<width+10;++i)
     for (int j=0;j<height;++j){
@@ -88,7 +89,7 @@ void Game::showEnding(){
             windowCanvas.draw(i, j, ' ', 7);
     }
 
-    vector<string> a = {"Player: " + playerName, "Level: " + to_string(level+1), "Press any ESC to quit!"};
+    vector<string> a = {"Player: " + playerName, "Level: " + to_string(level+1), "Press any ESC to quit!", "Press Y to play again this level"};
     int startRow = height/2 -1 - int(a.size())/2, startCol;
     int m = a.size();
     for (int i=0; i<m; ++i){
@@ -99,7 +100,9 @@ void Game::showEnding(){
     int tmp;
     do{
         tmp = getch();
-    }while(tmp != 27);
+    }while(tmp != 27 &&tmp!=121);   //check choice : esc or yes to replay this level
+    if(tmp==121)return true;
+    return false;
 }
 
 string Game::getPlayerName(){
@@ -140,20 +143,18 @@ string Game::getPlayerName(){
     }while(true);
     return name;
 }
-
-void Game::start(){
-
-    playerName = getPlayerName();
-
-    windowCanvas.clearScreen();
-    Object* p = new Player(70, 39);
-    // draw box
-    for (int i=0;i<width;++i)
+void Game::drawBox(){
+  for (int i=0;i<width;++i)
     for (int j=0;j<height;++j){
         if (i==0 || j==0 || i==width-1 || j==height-1){
             windowCanvas.draw(i, j, '*', 10);
         }
     }
+}
+void Game::start(){
+    windowCanvas.clearScreen();
+    Object* p = new Player(70, 39);
+    drawBox();
 
     bool isRunning = true;
 
@@ -221,7 +222,7 @@ void Game::start(){
         }
     }
     t1.join();
-    showEnding();
+    if(showEnding())start();
 }
 
 void Game::loadGame(){
