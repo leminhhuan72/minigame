@@ -4,6 +4,8 @@
 
 using namespace std;
 
+SoundControl* SoundControl::soundControl = nullptr;
+
 int main(){
     srand(time(nullptr));
     Game newGame;

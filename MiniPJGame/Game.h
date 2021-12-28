@@ -10,6 +10,7 @@
 #include <vector>
 #include <conio.h>
 #include <iostream>
+#include "SoundControl.h"
 
 using namespace std;
 

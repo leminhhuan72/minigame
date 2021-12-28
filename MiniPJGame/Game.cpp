@@ -2,7 +2,10 @@
 
 void Game::startGame(){
     bool isRunning = true;
+    SoundControl* soundControl = SoundControl::GetInstance();
     do{
+        /// Sound;
+        soundControl->playBackGround1();
         switch (showMenu()){
         case 0:
             playerName = getPlayerName();
@@ -152,6 +155,10 @@ void Game::drawBox(){
     }
 }
 void Game::start(){
+    /// Sound;
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playBackGround2();
+
     windowCanvas.clearScreen();
     Object* p = new Player(70, 39);
     drawBox();
@@ -252,3 +259,4 @@ void Game::loadGame(){
 void Game::setting(){
 
 }
+
