@@ -181,7 +181,7 @@ void Game::start(){
                 continue;
             }
             /// update level
-            if (p->isImpactY(4)){
+            if (p->isImpactY(3)){
                 soundControl->playSound("Sound//levelup.wav");
                 ++level;
                 wayLst.clear();
