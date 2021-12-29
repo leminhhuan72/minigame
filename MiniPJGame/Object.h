@@ -10,6 +10,9 @@ class Object{
 protected:
     int x, y, w, h;
     bool isUp;
+    vector<vector<vector<bool> > > boundingBox;
+    vector<vector<string> > sprite;
+    int cur;
 public:
     Object(int x, int y, int w, int h):x(x), y(y), w(w), h(h), isUp(true){}
     virtual ~Object(){}
@@ -22,6 +25,7 @@ public:
     int getWidth();
     int getX();
     virtual void draw(windowCanvas &windowCanvas) = 0;
+    void makeBoundingBox();
 };
 
 #endif // _Object_

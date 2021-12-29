@@ -8,8 +8,6 @@ using namespace std;
 
 class Player : public Object{
 private:
-    vector<vector<string> > sprite;
-    int cur;
     int color;
 public:
     Player(int x, int y): Object(x, y, 5, 4){
@@ -20,6 +18,7 @@ public:
                                         });
         cur = 0;
         color = 8;
+        makeBoundingBox();
     }
     void draw(windowCanvas &windowCanvas);
     void moveTo(int x, int y){

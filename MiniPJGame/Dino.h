@@ -8,8 +8,6 @@ using namespace std;
 
 class Dino : public Object{
 private:
-    vector<vector<string> > sprite;
-    int cur;
     int color;
 public:
     Dino(int x, int y, bool isLeft): Object(x, y, 18, 4){
@@ -28,6 +26,7 @@ public:
         }
         cur = 0;
         color = 8;
+        makeBoundingBox();
     }
     void draw(windowCanvas &windowCanvas);
     void moveTo(int x, int y){

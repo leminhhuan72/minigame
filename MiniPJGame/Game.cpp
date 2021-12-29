@@ -182,16 +182,19 @@ void Game::start(){
             }
             /// update level
             if (p->isImpactY(4)){
+                soundControl->playSound("Sound//levelup.wav");
                 ++level;
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
                 p = new Player(70, 39);
+                soundControl->playBackGround2();
             }
             /// check impact
             if (checkImpact(wayLst, p)){
                 isPause = true;
-                continue;;
+                soundControl->playSound("Sound//player_die.wav");
+                continue;
             }
             for (int i=1;i<width-1;++i)
             for (int j=1;j<height-1;++j){
@@ -222,6 +225,7 @@ void Game::start(){
 //        cout << tmp << endl;
         if (isPause){
             if (tmp == 121){
+                soundControl->playBackGround2();
                 windowCanvas.clearScreen();
                 windowCanvas.setLim(0,0, width, height);
                 wayLst.clear();

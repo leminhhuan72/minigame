@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <assert.h>
+#include "SoundControl.h"
 
 using namespace std;
 
