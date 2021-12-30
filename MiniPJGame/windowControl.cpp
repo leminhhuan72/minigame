@@ -43,3 +43,37 @@ void windowCanvas::draw(int x, int y, string s, int co){
     }
 }
 
+void windowCanvas::drawScreen(){
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    for (int x=0; x<n; ++x)
+    for (int y=0; y<m; ++y)
+    if (a[x][y] != b[x][y] || color[x][y] != cOld[x][y]){
+        b[x][y] = a[x][y];
+        cOld[x][y] = color[x][y];
+        GotoXY(x, y);
+        SetConsoleTextAttribute(hConsole, color[x][y]);
+        cout << a[x][y];
+    }
+}
+
+void windowCanvas::resetLim(){
+    xL = 0;
+    xR = n;
+    yL = 0;
+    yR = m;
+}
+
+void windowCanvas::setLim(int x1, int y1, int x2, int y2){
+    xL = x1;
+    xR = x2;
+    yL = y1;
+    yR = y2;
+}
+
+void windowCanvas::clearScreen(){
+    for (int x=0; x<n; ++x)
+    for (int y=0; y<m; ++y){
+        a[x][y] = ' ';
+        color[x][y] = 7;
+    }
+}
