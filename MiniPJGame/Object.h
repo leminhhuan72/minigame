@@ -25,6 +25,7 @@ public:
     int getWidth();
     int getX();
     virtual void draw(windowCanvas &windowCanvas) = 0;
+    virtual void playImpactSound() = 0;
     void makeBoundingBox();
 };
 
