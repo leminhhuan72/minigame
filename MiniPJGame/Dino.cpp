@@ -8,4 +8,7 @@ void Dino::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 
-
+void Dino::playImpactSound(){
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//dinosaur_die.wav");
+}

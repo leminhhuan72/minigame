@@ -21,12 +21,8 @@ public:
         makeBoundingBox();
     }
     void draw(windowCanvas &windowCanvas);
-    void moveTo(int x, int y){
-        if (this->x + x >=1 && this->x + this->w + x < 144 &&
-                this->y + y >=1 && this->y + this->h + y < 43)
-            Object::moveTo(x, y);
-        cur = (cur+1)%(int(sprite.size()));
-    }
+    void moveTo(int x, int y);
+    void playImpactSound(){};
 };
 
 #endif // _Player_
