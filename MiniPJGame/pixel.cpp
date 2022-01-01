@@ -1,6 +1,6 @@
 #include "pixel.h"
 
-Pixel::Pixel(Point p, char c, char color) :c(c), color(color), Point(p)
+Pixel::Pixel(Point p, char c, char color) : Point(p), c(c), color(color)
 {
 }
 
