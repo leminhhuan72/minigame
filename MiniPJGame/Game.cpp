@@ -71,7 +71,7 @@ vector<Highway> Game::buildLevel(int u){
     int lane = u/3 +1 ;
     int dis = u%3;
     for (int i=0;i<lane; ++i)
-        a.emplace_back((i&1?1:-1), 8+i*7, dis);
+        a.emplace_back((i&1?1:-1), 8+i*7, dis, i);
     return a;
 }
 
