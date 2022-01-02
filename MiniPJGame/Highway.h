@@ -36,6 +36,11 @@ public:
                 lst.push_back(new Bicycle(i, y+2, x==-1));
                 i += lst.back()->getWidth() + dis;
             }
+        } else if (t == 1) {
+            for (int i = 3; i<200;){
+                lst.push_back(new Car(i, y+2, x==-1));
+                i += lst.back()->getWidth() + dis;
+            }
         }
         isUp = true;
         isImp = true;
