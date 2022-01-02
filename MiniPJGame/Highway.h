@@ -25,16 +25,12 @@ private:
     bool status; // true - green, false - red
     bool isImp;
 public:
-    Highway(int x, int y, int w):y(y), x(x), dis(14-w*2){
+    Highway(int x, int y, int w, int t):y(y), x(x), dis(14-w*2){
         color = 7;
         timer = rand()%3+5;
         curTime = timer;
         status = true;
         timepass = 0.3;
-        for (int i = 3; i<200;){
-            lst.push_back(new Dino(i, y+2, x==-1));
-            i += lst.back()->getWidth() + dis;
-        }
         isUp = true;
         isImp = true;
     }
