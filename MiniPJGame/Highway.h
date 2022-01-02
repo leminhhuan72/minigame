@@ -31,6 +31,12 @@ public:
         curTime = timer;
         status = true;
         timepass = 0.3;
+        if (t == 0) {
+            for (int i = 3; i<200;){
+                lst.push_back(new Bicycle(i, y+2, x==-1));
+                i += lst.back()->getWidth() + dis;
+            }
+        }
         isUp = true;
         isImp = true;
     }
