@@ -4,6 +4,11 @@
 #include "Object.h"
 #include "Player.h"
 #include "Dino.h"
+#include "Car.h"
+#include "Owl.h"
+#include "Cow.h"
+#include "Truck.h"
+#include "Bicycle.h"
 #include <vector>
 #include <ctime>
 #include <cmath>

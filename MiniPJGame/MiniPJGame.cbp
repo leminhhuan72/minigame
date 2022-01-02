@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Bicycle.cpp" />
+		<Unit filename="Bicycle.h" />
+		<Unit filename="Car.cpp" />
+		<Unit filename="Car.h" />
+		<Unit filename="Cow.cpp" />
+		<Unit filename="Cow.h" />
 		<Unit filename="Dino.cpp" />
 		<Unit filename="Dino.h" />
 		<Unit filename="Game.cpp" />
@@ -40,6 +46,8 @@
 		<Unit filename="Highway.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+		<Unit filename="Owl.cpp" />
+		<Unit filename="Owl.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="SoundControl.cpp" />
@@ -54,6 +62,8 @@
 		<Unit filename="Sound/levelup.wav" />
 		<Unit filename="Sound/move.wav" />
 		<Unit filename="Sound/player_die.wav" />
+		<Unit filename="Truck.cpp" />
+		<Unit filename="Truck.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pixel.cpp" />
 		<Unit filename="pixel.h" />
