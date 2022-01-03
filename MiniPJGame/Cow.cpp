@@ -9,6 +9,8 @@ void Cow::draw(windowCanvas &windowCanvas){
 }
 
 void Cow::playImpactSound(){
-    SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//cow_die.wav");
+    if (isOn) {
+        SoundControl* soundControl = SoundControl::GetInstance();
+        soundControl->playSound("Sound//cow_die.wav");
+    }
 }

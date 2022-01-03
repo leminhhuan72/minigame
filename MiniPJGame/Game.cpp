@@ -5,8 +5,12 @@ void Game::startGame(){
     SoundControl* soundControl = SoundControl::GetInstance();
     do{
         /// Sound;
-        soundControl->playBackGround1();
-        switch (showMenu()){
+        if (turnOnMusic) {
+            soundControl->playBackGround1();
+        } else {
+            soundControl->playNoSound();
+        }
+        switch (showMenu1()){
         case 0:
             playerName = getPlayerName();
             start();
@@ -15,7 +19,7 @@ void Game::startGame(){
             loadGame();
             break;
         case 2:
-            setting();
+            startSetting();
             break;
         default:
             isRunning = false;
@@ -24,7 +28,7 @@ void Game::startGame(){
     }while(isRunning);
 }
 
-int Game::showMenu(){
+int Game::showMenu1(){
     windowCanvas.resetLim();
     int cur = 0;
     for (int i=0;i<width+10;++i)
@@ -71,7 +75,7 @@ vector<Highway> Game::buildLevel(int u){
     int lane = u/3 +1 ;
     int dis = u%3;
     for (int i=0;i<lane; ++i)
-        a.emplace_back((i&1?1:-1), 8+i*7, dis, i);
+        a.emplace_back((i&1?1:-1), 8+i*7, dis, turnOnMusic, i);
     return a;
 }
 
@@ -157,10 +161,13 @@ void Game::drawBox(){
 void Game::start(){
     /// Sound;
     SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playBackGround2();
-
+    if (turnOnMusic) {
+        soundControl->playBackGround2();
+    } else {
+        soundControl->playNoSound();
+    }
     windowCanvas.clearScreen();
-    Object* p = new Player(70, 39);
+    Object* p = new Player(70, 39, turnOnMusic);
     drawBox();
 
     bool isRunning = true;
@@ -182,18 +189,30 @@ void Game::start(){
             }
             /// update level
             if (p->isImpactY(3)){
-                soundControl->playSound("Sound//levelup.wav");
+                if (turnOnMusic) {
+                    soundControl->playSound("Sound//levelup.wav");
+                } else {
+                    soundControl->playNoSound();
+                }
                 ++level;
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
-                p = new Player(70, 39);
-                soundControl->playBackGround2();
+                p = new Player(70, 39, turnOnMusic);
+                if (turnOnMusic) {
+                    soundControl->playBackGround2();
+                } else {
+                    soundControl->playNoSound();
+                }
             }
             /// check impact
             if (checkImpact(wayLst, p)){
                 isPause = true;
-                soundControl->playSound("Sound//player_die.wav");
+                if (turnOnMusic) {
+                    soundControl->playSound("Sound//player_die.wav");
+                } else {
+                    soundControl->playNoSound();
+                }
                 continue;
             }
             for (int i=1;i<width-1;++i)
@@ -225,13 +244,17 @@ void Game::start(){
 //        cout << tmp << endl;
         if (isPause){
             if (tmp == 121){
-                soundControl->playBackGround2();
+                if (turnOnMusic) {
+                    soundControl->playBackGround2();
+                } else {
+                    soundControl->playNoSound();
+                }
                 windowCanvas.clearScreen();
                 windowCanvas.setLim(0,0, width, height);
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
-                p = new Player(70, 39);
+                p = new Player(70, 39, turnOnMusic);
                 isPause = false;
             }else
             if (tmp == 27){
@@ -260,7 +283,109 @@ void Game::loadGame(){
 
 }
 
-void Game::setting(){
+void Game::startSetting() {
+    SoundControl* soundControl = SoundControl::GetInstance();
+    /// Sound;
+    if (turnOnMusic) {
+        soundControl->playBackGround1();
+    } else {
+        soundControl->playNoSound();
+    }
+    int tmp = showMenu2();
+    if (tmp == 0) {
+        levelSetting();
+    } else if (tmp == 1) {
+        musicSetting();
+    }
+}
 
+int Game::showMenu2() {
+    windowCanvas.resetLim();
+    int cur = 0;
+    for (int i=0;i<width+10;++i)
+    for (int j=0;j<height;++j){
+        if (i==0 || j==0 || i==width+9 || j==height-1){
+            windowCanvas.draw(i, j, '*', 10);
+        }else
+            windowCanvas.draw(i, j, ' ', 7);
+    }
+
+    windowCanvas.drawScreen();
+    vector<string> a = {"LEVEL", "MUSIC", "TURN BACK"};
+    int startRow = height/2 -1 - int(a.size())/2, startCol;
+    int tmp;
+    int m = a.size();
+    do{
+        for (int i=0; i<m; ++i){
+            startCol = width/2 + 5 -1 - int(a[i].size())/2;
+            if (i == cur){
+                windowCanvas.draw(startCol, startRow+i, a[i], 23);
+            }else{
+                windowCanvas.draw(startCol, startRow+i, a[i], 15);
+            }
+        }
+        windowCanvas.drawScreen();
+        tmp = getch();
+        if (tmp == 80){
+            cur = (cur+1)%m;
+        }else
+        if (tmp == 72){
+            cur = (cur-1+m)%m;
+        }else
+        if (tmp == 13){
+            return cur;
+        }else
+        if (tmp == 27){
+            return m-1;
+        }
+    }while(true);
+}
+
+void Game::levelSetting(){
+
+}
+
+void Game::musicSetting() {
+    windowCanvas.resetLim();
+    int cur = 0;
+    for (int i=0;i<width+10;++i)
+    for (int j=0;j<height;++j){
+        if (i==0 || j==0 || i==width+9 || j==height-1){
+            windowCanvas.draw(i, j, '*', 10);
+        }else
+            windowCanvas.draw(i, j, ' ', 7);
+    }
+
+    windowCanvas.drawScreen();
+    vector<string> a = {"TURN ON", "TURN OFF"};
+    int startRow = height/2 -1 - int(a.size())/2, startCol;
+    int tmp;
+    int m = a.size();
+    do{
+        for (int i=0; i<m; ++i){
+            startCol = width/2 + 5 -1 - int(a[i].size())/2;
+            if (i == cur){
+                windowCanvas.draw(startCol, startRow+i, a[i], 23);
+            }else{
+                windowCanvas.draw(startCol, startRow+i, a[i], 15);
+            }
+        }
+        windowCanvas.drawScreen();
+        tmp = getch();
+        if (tmp == 80){
+            cur = (cur+1)%m;
+        }else
+        if (tmp == 72){
+            cur = (cur-1+m)%m;
+        }else
+        if (tmp == 13){
+            if (cur == 0) {
+                turnOnMusic = true;
+            } else {
+                turnOnMusic = false;
+            }
+            return;
+        }
+    }while(true);
 }
 

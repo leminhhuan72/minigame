@@ -10,7 +10,7 @@ class Bicycle : public Object{
 private:
     int color;
 public:
-    Bicycle(int x, int y, bool isLeft): Object(x, y, 7, 4){
+    Bicycle(int x, int y, bool isOn, bool isLeft): Object(x, y, 7, 4, isOn){
         sprite.push_back(vector<string>{"   O   ",
                                         "  /\\,  ",
                                         " -|~(*)",

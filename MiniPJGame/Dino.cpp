@@ -9,6 +9,8 @@ void Dino::draw(windowCanvas &windowCanvas){
 }
 
 void Dino::playImpactSound(){
-    SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//dinosaur_die.wav");
+    if (isOn) {
+        SoundControl* soundControl = SoundControl::GetInstance();
+        soundControl->playSound("Sound//dinosaur_die.wav");
+    }
 }

@@ -28,6 +28,7 @@ public:
     void playBackGround(string s);
     void playBackGround1();
     void playBackGround2();
+    void playNoSound();
     void playSound(string s);
 };
 

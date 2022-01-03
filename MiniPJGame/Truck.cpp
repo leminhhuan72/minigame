@@ -9,8 +9,10 @@ void Truck::draw(windowCanvas &windowCanvas){
 }
 
 void Truck::playImpactSound(){
-    SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//car_die.wav");
+    if (isOn) {
+        SoundControl* soundControl = SoundControl::GetInstance();
+        soundControl->playSound("Sound//car_die.wav");
+    }
 }
 
 

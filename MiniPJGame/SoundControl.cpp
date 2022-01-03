@@ -13,6 +13,10 @@ void SoundControl::playBackGround2(){
     playBackGround("Sound//Background2.wav");
 }
 
+void SoundControl::playNoSound() {
+    PlaySound(0, 0, 0);
+}
+
 void SoundControl::playSound(string s){
     PlaySound(s.c_str(), NULL, SND_SYNC);
     curBackGround = s;
