@@ -5,11 +5,7 @@ void Game::startGame(){
     SoundControl* soundControl = SoundControl::GetInstance();
     do{
         /// Sound;
-        if (turnOnMusic) {
-            soundControl->playBackGround1();
-        } else {
-            soundControl->playNoSound();
-        }
+        soundControl->playBackGround1();
         switch (showMenu1()){
         case 0:
             playerName = getPlayerName();
@@ -75,7 +71,7 @@ vector<Highway> Game::buildLevel(int u){
     int lane = u/3 +1 ;
     int dis = u%3;
     for (int i=0;i<lane; ++i)
-        a.emplace_back((i&1?1:-1), 8+i*7, dis, turnOnMusic, i);
+        a.emplace_back((i&1?1:-1), 8+i*7, dis, i);
     return a;
 }
 
@@ -161,13 +157,9 @@ void Game::drawBox(){
 void Game::start(){
     /// Sound;
     SoundControl* soundControl = SoundControl::GetInstance();
-    if (turnOnMusic) {
-        soundControl->playBackGround2();
-    } else {
-        soundControl->playNoSound();
-    }
+    soundControl->playBackGround2();
     windowCanvas.clearScreen();
-    Object* p = new Player(70, 39, turnOnMusic);
+    Object* p = new Player(70, 39);
     drawBox();
 
     bool isRunning = true;
@@ -189,30 +181,18 @@ void Game::start(){
             }
             /// update level
             if (p->isImpactY(3)){
-                if (turnOnMusic) {
-                    soundControl->playSound("Sound//levelup.wav");
-                } else {
-                    soundControl->playNoSound();
-                }
+                soundControl->playSound("Sound//levelup.wav");
                 ++level;
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
-                p = new Player(70, 39, turnOnMusic);
-                if (turnOnMusic) {
-                    soundControl->playBackGround2();
-                } else {
-                    soundControl->playNoSound();
-                }
+                p = new Player(70, 39);
+                soundControl->playBackGround2();
             }
             /// check impact
             if (checkImpact(wayLst, p)){
                 isPause = true;
-                if (turnOnMusic) {
-                    soundControl->playSound("Sound//player_die.wav");
-                } else {
-                    soundControl->playNoSound();
-                }
+                soundControl->playSound("Sound//player_die.wav");
                 continue;
             }
             for (int i=1;i<width-1;++i)
@@ -244,17 +224,13 @@ void Game::start(){
 //        cout << tmp << endl;
         if (isPause){
             if (tmp == 121){
-                if (turnOnMusic) {
-                    soundControl->playBackGround2();
-                } else {
-                    soundControl->playNoSound();
-                }
+                soundControl->playBackGround2();
                 windowCanvas.clearScreen();
                 windowCanvas.setLim(0,0, width, height);
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
-                p = new Player(70, 39, turnOnMusic);
+                p = new Player(70, 39);
                 isPause = false;
             }else
             if (tmp == 27){
@@ -286,11 +262,7 @@ void Game::loadGame(){
 void Game::startSetting() {
     SoundControl* soundControl = SoundControl::GetInstance();
     /// Sound;
-    if (turnOnMusic) {
-        soundControl->playBackGround1();
-    } else {
-        soundControl->playNoSound();
-    }
+    soundControl->playBackGround1();
     int tmp = showMenu2();
     if (tmp == 0) {
         levelSetting();
@@ -379,10 +351,14 @@ void Game::musicSetting() {
             cur = (cur-1+m)%m;
         }else
         if (tmp == 13){
-            if (cur == 0) {
+            if (turnOnMusic == false && cur == 0) {
                 turnOnMusic = true;
-            } else {
+                SoundControl* soundControl = SoundControl::GetInstance();
+                soundControl->changeStatus();
+            } else if (turnOnMusic == true && cur == 1) {
                 turnOnMusic = false;
+                SoundControl* soundControl = SoundControl::GetInstance();
+                soundControl->changeStatus();
             }
             return;
         }

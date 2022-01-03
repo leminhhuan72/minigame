@@ -10,7 +10,7 @@ class Truck : public Object{
 private:
     int color;
 public:
-    Truck(int x, int y, bool isOn, bool isLeft): Object(x, y, 20, 4, isOn){
+    Truck(int x, int y, bool isLeft): Object(x, y, 20, 4){
         sprite.push_back(vector<string>{"    __   __________ ",
                                         "  _//]|-|          |",
                                         " |____|-|__________|",

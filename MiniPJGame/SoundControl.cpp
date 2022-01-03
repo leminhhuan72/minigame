@@ -29,7 +29,7 @@ void SoundControl::changeStatus(){
     }else{
         isPlaySound = true;
         string tmp = curBackGround;
-        curBackGround = ""
+        curBackGround = "";
         playBackGround(tmp);
     }
 }

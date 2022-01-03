@@ -8,10 +8,8 @@ void Car::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 void Car::playImpactSound(){
-    if (isOn) {
-        SoundControl* soundControl = SoundControl::GetInstance();
-        soundControl->playSound("Sound//car_die.wav");
-    }
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//car_die.wav");
 }
 
 

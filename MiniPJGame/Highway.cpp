@@ -51,7 +51,7 @@ void Highway::update(double t){
                 int tmp = 0;
                 for (auto v: lst)
                     tmp = max(tmp, v->getX() + v->getWidth());
-                lst.push_back(new Dino(tmp+dis, y+2, onMic, x==-1));
+                lst.push_back(new Dino(tmp+dis, y+2, x==-1));
                 //assert(int(lst.size()) == 7);
                 break;
             }

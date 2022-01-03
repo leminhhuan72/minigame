@@ -10,7 +10,7 @@ class Owl : public Object{
 private:
     int color;
 public:
-    Owl(int x, int y, bool isOn, bool isLeft): Object(x, y, 7, 4, isOn){
+    Owl(int x, int y, bool isLeft): Object(x, y, 7, 4){
         sprite.push_back(vector<string>{" /\\_/\\ ",
                                         "((@v@))",
                                         "():::()",
