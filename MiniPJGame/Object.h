@@ -9,12 +9,13 @@ using namespace std;
 class Object{
 protected:
     int x, y, w, h;
+    bool isOn;
     bool isUp;
     vector<vector<vector<bool> > > boundingBox;
     vector<vector<string> > sprite;
     int cur;
 public:
-    Object(int x, int y, int w, int h):x(x), y(y), w(w), h(h), isUp(true){}
+    Object(int x, int y, int w, int h, bool isOn):x(x), y(y), w(w), h(h), isOn(isOn), isUp(true){}
     virtual ~Object(){}
     virtual void moveTo(int x, int y);
     bool isImpact(Object*& other);

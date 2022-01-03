@@ -8,8 +8,10 @@ void Owl::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 void Owl::playImpactSound(){
-    SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//bird_die.wav");
+    if (isOn) {
+        SoundControl* soundControl = SoundControl::GetInstance();
+        soundControl->playSound("Sound//bird_die.wav");
+    }
 }
 
 

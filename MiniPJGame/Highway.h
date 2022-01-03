@@ -24,20 +24,31 @@ private:
     double timer, timepass, curTime;
     bool status; // true - green, false - red
     bool isImp;
-    int typeObstacle;
+    bool onMic;
+    Object* createObject(int x, int y, bool isOn, bool isLeft, int c) {
+        if (c == 0) {
+            return new Bicycle(x, y, isOn, isLeft);
+        } else if (c == 1) {
+            return new Car(x, y, isOn, isLeft);
+        } else if (c == 2) {
+            return new Cow(x, y, isOn, isLeft);
+        }
+        /// else if (c == 3)
+        return new Dino(x, y, isOn, isLeft);
+    }
 public:
-    Highway(int x, int y, int w, int t):y(y), x(x), dis(14-w*2){
-        typeObstacle = rand()%4;
+    Highway(int x, int y, bool isOn, int w, int c):y(y), x(x), dis(14-w*2){
         color = 7;
         timer = rand()%3+5;
         curTime = timer;
         status = true;
         timepass = 0.3;
         for (int i = 3; i<200;){
-            lst.push_back(createObject(i));
+            lst.push_back(createObject(i, y+2, isOn, x==-1, c));
             i += lst.back()->getWidth() + dis;
         }
         isUp = true;
+        onMic = isOn;
         isImp = true;
     }
     void draw(windowCanvas &windowCanvas);
@@ -45,7 +56,6 @@ public:
     bool isUpdate();
     void isImpact(Object*& u);
     bool checkImpact(Object*& u);
-    Object* createObject(int i);
 };
 
 

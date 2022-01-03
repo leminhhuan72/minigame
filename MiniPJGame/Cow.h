@@ -10,7 +10,7 @@ class Cow : public Object{
 private:
     int color;
 public:
-    Cow(int x, int y, bool isLeft): Object(x, y, 12, 4){
+    Cow(int x, int y, bool isOn, bool isLeft): Object(x, y, 12, 4, isOn){
         sprite.push_back(vector<string>{"        (__)",
                                         "`\\------(oo)",
                                         "  ||    (__)",

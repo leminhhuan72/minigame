@@ -10,7 +10,7 @@ class Dino : public Object{
 private:
     int color;
 public:
-    Dino(int x, int y, bool isLeft): Object(x, y, 18, 4){
+    Dino(int x, int y, bool isOn, bool isLeft): Object(x, y, 18, 4, isOn){
         sprite.push_back(vector<string>{"              /*_)",
                                         "     _.----._/ /  ",
                                         "  __/         /   ",

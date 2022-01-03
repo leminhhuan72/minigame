@@ -10,7 +10,7 @@ class Player : public Object{
 private:
     int color;
 public:
-    Player(int x, int y): Object(x, y, 5, 4){
+    Player(int x, int y, bool isOn): Object(x, y, 5, 4, isOn){
         sprite.push_back(vector<string>{" ___ ",
                                         "(._.)",
                                         " <|> ",

@@ -18,6 +18,7 @@ class Game{
     double delta, timepass;
     int width, height, level;
     string playerName;
+    bool turnOnMusic;
     windowCanvas windowCanvas;
 public:
     Game():windowCanvas(){
@@ -26,12 +27,16 @@ public:
         height = 44;
         timepass = 0;
         level = 0;
+        turnOnMusic = true;
     }
     void startGame();
-    int showMenu();
+    int showMenu1();
     void start();
     void loadGame();
-    void setting();
+    void startSetting();
+    int showMenu2();
+    void levelSetting();
+    void musicSetting();
     bool showEnding();
     string getPlayerName();
     bool checkImpact(vector<Highway> &wayLst, Object*& u);

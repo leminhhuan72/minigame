@@ -9,6 +9,8 @@ void Bicycle::draw(windowCanvas &windowCanvas){
 }
 
 void Bicycle::playImpactSound(){
-    SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//car_die.wav");
+    if (isOn) {
+        SoundControl* soundControl = SoundControl::GetInstance();
+        soundControl->playSound("Sound//car_die.wav");
+    }
 }
