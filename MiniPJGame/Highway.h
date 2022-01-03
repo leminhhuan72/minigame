@@ -24,33 +24,18 @@ private:
     double timer, timepass, curTime;
     bool status; // true - green, false - red
     bool isImp;
+    int typeObstacle;
 public:
     Highway(int x, int y, int w, int t):y(y), x(x), dis(14-w*2){
+        typeObstacle = rand()%4;
         color = 7;
         timer = rand()%3+5;
         curTime = timer;
         status = true;
         timepass = 0.3;
-        if (t == 0) {
-            for (int i = 3; i<200;){
-                lst.push_back(new Bicycle(i, y+2, x==-1));
-                i += lst.back()->getWidth() + dis;
-            }
-        } else if (t == 1) {
-            for (int i = 3; i<200;){
-                lst.push_back(new Car(i, y+2, x==-1));
-                i += lst.back()->getWidth() + dis;
-            }
-        } else if (t == 2) {
-            for (int i = 3; i<200;){
-                lst.push_back(new Cow(i, y+2, x==-1));
-                i += lst.back()->getWidth() + dis;
-            }
-        } else if (t == 3) {
-            for (int i = 3; i<200;){
-                lst.push_back(new Dino(i, y+2, x==-1));
-                i += lst.back()->getWidth() + dis;
-            }
+        for (int i = 3; i<200;){
+            lst.push_back(createObject(i));
+            i += lst.back()->getWidth() + dis;
         }
         isUp = true;
         isImp = true;
@@ -60,6 +45,7 @@ public:
     bool isUpdate();
     void isImpact(Object*& u);
     bool checkImpact(Object*& u);
+    Object* createObject(int i);
 };
 
 
