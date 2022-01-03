@@ -10,5 +10,5 @@ void Cow::draw(windowCanvas &windowCanvas){
 
 void Cow::playImpactSound(){
     SoundControl* soundControl = SoundControl::GetInstance();
-    soundControl->playSound("Sound//bird_die.wav");
+    soundControl->playSound("Sound//cow_die.wav");
 }
