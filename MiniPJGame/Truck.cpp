@@ -8,6 +8,9 @@ void Truck::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 
-
+void Truck::playImpactSound(){
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//dinosaur_die.wav");
+}
 
 

@@ -33,6 +33,7 @@ public:
         Object::moveTo(x, y);
         cur = (cur+1)%(int(sprite.size()));
     }
+    void playImpactSound();
 };
 
 #endif // _Truck_

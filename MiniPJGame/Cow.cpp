@@ -8,4 +8,7 @@ void Cow::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 
-
+void Cow::playImpactSound(){
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//bird_die.wav");
+}

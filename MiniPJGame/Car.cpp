@@ -7,6 +7,9 @@ void Car::draw(windowCanvas &windowCanvas){
     ++cur;
     cur%=int(sprite.size());
 }
-
+void Car::playImpactSound(){
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//car_die.wav");
+}
 
 

@@ -8,4 +8,7 @@ void Bicycle::draw(windowCanvas &windowCanvas){
     cur%=int(sprite.size());
 }
 
-
+void Bicycle::playImpactSound(){
+    SoundControl* soundControl = SoundControl::GetInstance();
+    soundControl->playSound("Sound//car_die.wav");
+}
