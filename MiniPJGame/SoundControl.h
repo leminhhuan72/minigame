@@ -14,7 +14,8 @@ class SoundControl{
 private:
     static SoundControl* soundControl;
     string curBackGround;
-    SoundControl():curBackGround(""){}
+    bool isPlaySound;
+    SoundControl():curBackGround(""), isPlaySound(true){}
 public:
     SoundControl(SoundControl &other) = delete;
     void operator=(const SoundControl &) = delete;
@@ -28,7 +29,7 @@ public:
     void playBackGround(string s);
     void playBackGround1();
     void playBackGround2();
-    void playNoSound();
+    void changeStatus();
     void playSound(string s);
 };
 
