@@ -34,12 +34,12 @@ void Highway::update(double t){
     if (curTime <= 0){
         status = !status;
         curTime = timer;
-        timepass = 0.4;
+        timepass = speedSetting(mSpeed);
     }
     if (status){
         timepass -= t;
         if (timepass <= 0){
-            timepass = 0.4;
+            timepass = speedSetting(mSpeed);
             for (auto u: lst){
                 u->moveTo(x, 0);
             }
