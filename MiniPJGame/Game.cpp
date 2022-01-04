@@ -265,7 +265,10 @@ void Game::startSetting() {
     soundControl->playBackGround1();
     int tmp = showMenu2();
     if (tmp == 0) {
-        levelSetting();
+        int tmp = levelSetting();
+        if (tmp != 6) {
+            speed = tmp;
+        }
     } else if (tmp == 1) {
         musicSetting();
     }
@@ -313,8 +316,43 @@ int Game::showMenu2() {
     }while(true);
 }
 
-void Game::levelSetting(){
+int Game::levelSetting(){
+    windowCanvas.resetLim();
+    int cur = 0;
+    for (int i=0;i<width+10;++i)
+    for (int j=0;j<height;++j){
+        if (i==0 || j==0 || i==width+9 || j==height-1){
+            windowCanvas.draw(i, j, '*', 10);
+        }else
+            windowCanvas.draw(i, j, ' ', 7);
+    }
 
+    windowCanvas.drawScreen();
+    vector<string> a = {"LEVEL 01", "LEVEL 02", "LEVEL 03", "LEVEL 04", "LEVEL 05", "TURN BACK"};
+    int startRow = height/2 -1 - int(a.size())/2, startCol;
+    int tmp;
+    int m = a.size();
+    do{
+        for (int i=0; i<m; ++i){
+            startCol = width/2 + 5 -1 - int(a[i].size())/2;
+            if (i == cur){
+                windowCanvas.draw(startCol, startRow+i, a[i], 23);
+            }else{
+                windowCanvas.draw(startCol, startRow+i, a[i], 15);
+            }
+        }
+        windowCanvas.drawScreen();
+        tmp = getch();
+        if (tmp == 80){
+            cur = (cur+1)%m;
+        }else
+        if (tmp == 72){
+            cur = (cur-1+m)%m;
+        }else
+        if (tmp == 13){
+            return cur + 1;
+        }
+    }while(true);
 }
 
 void Game::musicSetting() {

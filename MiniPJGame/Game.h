@@ -20,6 +20,7 @@ class Game{
     string playerName;
     bool turnOnMusic;
     windowCanvas windowCanvas;
+    double speed;
 public:
     Game():windowCanvas(){
         FixConsoleWindow();
@@ -27,6 +28,7 @@ public:
         height = 44;
         timepass = 0;
         level = 0;
+        speed = 1;
         turnOnMusic = true;
     }
     void startGame();
@@ -35,7 +37,7 @@ public:
     void loadGame();
     void startSetting();
     int showMenu2();
-    void levelSetting();
+    int levelSetting();
     void musicSetting();
     bool showEnding();
     string getPlayerName();
