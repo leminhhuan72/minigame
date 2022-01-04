@@ -25,28 +25,16 @@ private:
     bool status; // true - green, false - red
     bool isImp;
     double mSpeed;
-    Object* createObject(int x, int y, bool isLeft, int c) {
-        if (c == 0) {
-            return new Bicycle(x, y, isLeft);
-        } else if (c == 1) {
-            return new Car(x, y, isLeft);
-        } else if (c == 2) {
-            return new Cow(x, y, isLeft);
-        }
-        /// else if (c == 3)
-        return new Dino(x, y, isLeft);
-    }
-    double speedSetting(double t) {
-        return 0.5 / t;
-    }
+    int typeObstacle;
 public:
-    Highway(int x, int y, int w, int c, double s):y(y), x(x), dis(14-w*2){
+    Highway(int x, int y, int w, double s):y(y), x(x), dis(14-w*2){
+        typeObstacle = rand()%4;
         color = 7;
         timer = rand()%3+5;
         curTime = timer;
         status = true;
         for (int i = 3; i<200;){
-            lst.push_back(createObject(i, y+2, x==-1, c));
+            lst.push_back(createObject(i));
             i += lst.back()->getWidth() + dis;
         }
         isUp = true;
@@ -59,6 +47,9 @@ public:
     bool isUpdate();
     void isImpact(Object*& u);
     bool checkImpact(Object*& u);
+
+    Object* createObject(int i);
+    double speedSetting(double t);
 };
 
 

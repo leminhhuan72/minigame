@@ -51,7 +51,7 @@ void Highway::update(double t){
                 int tmp = 0;
                 for (auto v: lst)
                     tmp = max(tmp, v->getX() + v->getWidth());
-                lst.push_back(new Dino(tmp+dis, y+2, x==-1));
+                lst.push_back(createObject(tmp));
                 //assert(int(lst.size()) == 7);
                 break;
             }
@@ -65,4 +65,21 @@ bool Highway::checkImpact(Object*& u){
         if (v->isImpact(u))
             return true;
     return false;
+}
+Object* Highway::createObject(int i) {
+        if (typeObstacle == 0) {
+            return new Bicycle(i, y+2, x==-1);
+        } else
+        if (typeObstacle == 1) {
+            return new Car(i, y+2, x==-1);
+        } else
+        if (typeObstacle == 2) {
+            return new Cow(i, y+2, x==-1);
+        }else
+        if (typeObstacle == 3){
+            return new Dino(i, y+2, x==-1);
+        }
+    }
+double Highway::speedSetting(double t) {
+    return 0.5 / t;
 }
