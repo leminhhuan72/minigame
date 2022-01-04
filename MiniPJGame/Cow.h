@@ -8,7 +8,6 @@ using namespace std;
 
 class Cow : public Object{
 private:
-    int color;
 public:
     Cow(int x, int y, bool isLeft): Object(x, y, 12, 4){
         sprite.push_back(vector<string>{"        (__)",
@@ -25,7 +24,6 @@ public:
                 }
         }
         cur = 0;
-        color = 8;
         makeBoundingBox();
     }
     void draw(windowCanvas &windowCanvas);

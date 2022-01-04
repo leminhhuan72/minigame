@@ -8,7 +8,6 @@ using namespace std;
 
 class Car : public Object{
 private:
-    int color;
 public:
     Car(int x, int y, bool isLeft): Object(x, y, 21, 4){
         sprite.push_back(vector<string>{"      .--------.     ",
@@ -25,7 +24,6 @@ public:
                 }
         }
         cur = 0;
-        color = 8;
         makeBoundingBox();
     }
     void draw(windowCanvas &windowCanvas);
