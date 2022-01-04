@@ -33,7 +33,7 @@ public:
         timer = rand()%3+5;
         curTime = timer;
         status = true;
-        for (int i = 3; i<200;){
+        for (int i = 0 ; i<200;){
             lst.push_back(createObject(i));
             i += lst.back()->getWidth() + dis;
         }

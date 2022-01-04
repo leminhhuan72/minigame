@@ -43,17 +43,32 @@ void Highway::update(double t){
             for (auto u: lst){
                 u->moveTo(x, 0);
             }
-            for (int i=0, ii=lst.size(); i<ii; ++i)
-            if (lst[i]->getX() + lst[i]->getWidth() < 0){
-                swap(lst[i], lst.back());
-                delete lst.back();
-                lst.pop_back();
-                int tmp = 0;
-                for (auto v: lst)
-                    tmp = max(tmp, v->getX() + v->getWidth());
-                lst.push_back(createObject(tmp+dis));
-                //assert(int(lst.size()) == 7);
-                break;
+            if (x == -1){
+                for (int i=0, ii=lst.size(); i<ii; ++i)
+                if (lst[i]->getX() + lst[i]->getWidth() < 0){
+                    swap(lst[i], lst.back());
+                    delete lst.back();
+                    lst.pop_back();
+                    int tmp = 0;
+                    for (auto v: lst)
+                        tmp = max(tmp, v->getX() + v->getWidth());
+                    lst.push_back(createObject(tmp+dis));
+                    //assert(int(lst.size()) == 7);
+                    break;
+                }
+            }else{
+                for (int i=0, ii=lst.size(); i<ii; ++i)
+                if (lst[i]->getX() >= 200){
+                    swap(lst[i], lst.back());
+                    delete lst.back();
+                    lst.pop_back();
+                    int tmp =200;
+                    for (auto v: lst)
+                        tmp = min(tmp, v->getX());
+                    lst.push_back(createObject(tmp-dis-lst.back()->getWidth()));
+                    //assert(int(lst.size()) == 7);
+                    break;
+                }
             }
             isUp = true;
         }
