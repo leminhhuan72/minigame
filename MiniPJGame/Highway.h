@@ -28,7 +28,7 @@ private:
     int typeObstacle;
 public:
     Highway(int x, int y, int w, double s):y(y), x(x), dis(14-w*2){
-        typeObstacle = rand()%4;
+        typeObstacle = rand()%5;
         color = 7;
         timer = rand()%3+5;
         curTime = timer;
