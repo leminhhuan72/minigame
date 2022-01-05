@@ -74,7 +74,7 @@ vector<Highway> Game::buildLevel(int u){
     int lane = u/3 +1 ;
     int dis = u%3;
     for (int i=0;i<lane; ++i)
-        a.emplace_back((rand()&1?1:-1), 8+i*7, dis, speed);
+        a.emplace_back(((rand()%19)&1?1:-1), 8+i*7, dis, speed);
     return a;
 }
 
@@ -192,6 +192,7 @@ void Game::start(){
             if (p->isImpactY(3)){
                 soundControl->playSound("Sound//levelup.wav");
                 ++level;
+                level = min(level, 11);
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
