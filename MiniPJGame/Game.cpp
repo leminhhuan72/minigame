@@ -519,4 +519,10 @@ void Game::updatePlayerData(){
     }
     if (!k)
         dataLst.emplace_back(playerName, level, speed);
+    ofstream fo;
+    fo.open("Data//data.txt");
+    fo << dataLst.size() << endl;
+    for (int i=0, ii=dataLst.size(); i<ii; ++i)
+        fo << dataLst[i].name << ' ' << dataLst[i].level << ' ' << dataLst[i].speed << endl;
+    fo.close();
 }
