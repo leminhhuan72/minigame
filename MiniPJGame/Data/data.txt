@@ -1,1 +1,11 @@
-0
+10
+loitran 0
+meo 1
+a 1
+b 2
+c 3
+e 5
+d 7
+g 9
+q 0
+a 0

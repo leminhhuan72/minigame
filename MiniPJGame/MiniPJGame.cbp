@@ -38,6 +38,7 @@
 		<Unit filename="Car.h" />
 		<Unit filename="Cow.cpp" />
 		<Unit filename="Cow.h" />
+		<Unit filename="Data/data.txt" />
 		<Unit filename="Dino.cpp" />
 		<Unit filename="Dino.h" />
 		<Unit filename="Game.cpp" />

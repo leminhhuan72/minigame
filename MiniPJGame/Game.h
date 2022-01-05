@@ -25,6 +25,7 @@ class Game{
     vector<pair<string, int> > dataLst; // name, level
 public:
     Game():windowCanvas(){
+        loadData();
         FixConsoleWindow();
         width = 145;
         height = 44;
@@ -34,10 +35,11 @@ public:
         turnOnMusic = true;
     }
     void startGame();
+    void updatePlayerData();
     int showMenu1();
     void start();
     void loadData();
-    void loadGame();
+    int loadGame();
     void startSetting();
     int showMenu2();
     int levelSetting();

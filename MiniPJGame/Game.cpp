@@ -12,8 +12,10 @@ void Game::startGame(){
             start();
             break;
         case 1:
-            loadGame();
-            break;
+            if (loadGame()==-1)
+                break;
+            else
+                start();
         case 2:
             startSetting();
             break;
@@ -133,6 +135,9 @@ string Game::getPlayerName(){
         windowCanvas.draw(20, startRow, "Enter your name (Enter to finish): ", 10);
         GotoXY(55+int(name.size()), startRow);
         tmp = getch();
+        if (int(name.size())>10){
+
+        }else
         if (tmp == 32){ // space
             // pass
         }else
@@ -258,12 +263,86 @@ void Game::start(){
 //    if(showEnding())start();
 }
 
-void Game::loadGame(){
-
-}
-
 bool cmp(const pair<string, int> &u, const pair<string, int> &v){
     return u.second == v.second ? u.first < v.first : u.second > v.second;
+}
+
+int Game::loadGame(){
+    sort(dataLst.begin(), dataLst.end(), cmp);
+    windowCanvas.resetLim();
+    for (int i=0;i<width+10;++i)
+    for (int j=0;j<height;++j){
+        if (i==0 || j==0 || i==width+9 || j==height-1){
+            windowCanvas.draw(i, j, '*', 10);
+        }else
+            windowCanvas.draw(i, j, ' ', 7);
+    }
+    vector<string> a = {"+-------------------+",
+                        "|GAME          LEVEL|",
+                        "|-------------------|",
+                        "|                   |",
+                        "|                   |",
+                        "|                   |",
+                        "|                   |",
+                        "|                   |",
+                        "|                   |",
+                        "|                   |",
+                        "+-------------------+"};
+    int startRow = height/2 -1 - int(a.size())/2, startCol;
+    int m = a.size();
+    int cur=0, n = dataLst.size(), l, r, tmp;
+    l = 0, r = min(n, 7);
+    do{
+        for (int i=0; i<m; ++i){
+            startCol = width/2 + 5 -1 - int(a[i].size())/2;
+            windowCanvas.draw(startCol, startRow+i, a[i], 14);
+        }
+
+        while(cur<l||cur>=r){
+            if (cur < l){
+                --l, --r;
+            }else{
+                ++l, ++r;
+            }
+        }
+
+        for (int i=0; i+l<r; ++i){
+            string h=dataLst[i+l].first;
+            while(int(h.size()) < 14)
+                h.push_back(' ');
+            h += to_string(dataLst[i+l].second);
+            while(int(h.size()) < 19)
+                h.push_back(' ');
+            startCol = width/2 + 5 -1 - int(h.size())/2;
+            if (i+l == cur)
+                windowCanvas.draw(startCol, startRow+3+i, h, 236);
+            else
+                windowCanvas.draw(startCol, startRow+3+i, h, 12);
+        }
+
+        windowCanvas.drawScreen();
+
+        tmp = getch();
+        if (tmp == 80){
+            if (n)
+                cur = (cur+1)%n;
+        }else
+        if (tmp == 72){
+            if (n)
+                cur = (cur-1+n)%n;
+        }else
+        if (tmp == 13){
+            break;
+        }else
+        if (tmp == 27){
+            return -1;
+        }
+
+    }while(true);
+    if (cur == n) return -1;
+    playerName = dataLst[cur].first;
+    level = dataLst[cur].second;
+    return 1;
 }
 
 void Game::loadData(){
@@ -273,7 +352,7 @@ void Game::loadData(){
     fi >> n;
     dataLst.resize(n);
     for (int i=0; i<n; ++i)
-        cin >> dataLst[i].first >> dataLst[i].second;
+        fi >> dataLst[i].first >> dataLst[i].second;
     sort(dataLst.begin(), dataLst.end(), cmp);
     fi.close();
 }
