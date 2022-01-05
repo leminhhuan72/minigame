@@ -180,7 +180,7 @@ void Game::start(){
 
     int tmp;
     timepass = 0;
-    double timing = 0;
+    double timing = clock();
     bool isPause = false;
     auto updateGame = [&](){
         while(isRunning){
