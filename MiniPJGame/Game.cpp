@@ -9,6 +9,7 @@ void Game::startGame(){
         switch (showMenu1()){
         case 0:
             playerName = getPlayerName();
+            updatePlayerData();
             start();
             break;
         case 1:
@@ -196,6 +197,8 @@ void Game::start(){
                 delete p;
                 p = new Player(70, 39);
                 soundControl->playBackGround2();
+                updatePlayerData();
+                timing = clock();
             }
             /// check impact
             if (checkImpact(wayLst, p)){
@@ -501,3 +504,14 @@ void Game::musicSetting() {
     }while(true);
 }
 
+void Game::updatePlayerData(){
+    bool k =false;
+    for(int i=0, ii=dataLst.size(); i<ii; ++i)
+    if (dataLst[i].first == playerName){
+        dataLst[i].second = level;
+        k = true;
+        break;
+    }
+    if (!k)
+        dataLst.push_back(make_pair(playerName, level));
+}

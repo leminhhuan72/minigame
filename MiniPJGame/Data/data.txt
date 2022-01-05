@@ -1,11 +1,11 @@
-10
+9
 loitran 0
 meo 1
 a 1
 b 2
 c 3
+d 4
 e 5
-d 7
-g 9
-q 0
-a 0
+f 6
+g 0
+
