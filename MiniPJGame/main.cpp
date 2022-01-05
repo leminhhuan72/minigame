@@ -51,13 +51,10 @@ void drawTiTle() {
     windowCanvas.drawScreen();
 }    
 
-
-
-
-
 int main(){
     srand(time(nullptr));
     Game newGame;
+    drawTiTle();
     newGame.startGame();
     return 0;
 }
