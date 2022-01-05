@@ -34,6 +34,10 @@ bool Object::isImpact(Object*& other) {
     return false;
 }
 
+bool Object::isImpactX(int x){
+    return (this->x <= x && x <= this->x + this->w);
+}
+
 int Object::getX(){
     return x;
 }
