@@ -18,6 +18,24 @@ vector <string> press = {"(PRESS ENTER TO CONTINUE)"};
 void drawTiTle() {
     windowCanvas windowCanvas;
     windowCanvas.resetLim();
+    int width = 145;
+    int height= 44;
+    for (int i=0;i<width+10;++i)
+    for (int j=0;j<height;++j){
+        if (i==0 || j==0 || i==width+9 || j==height-1){
+            windowCanvas.draw(i, j, '*', 10);
+        }else
+            windowCanvas.draw(i, j, ' ', 7);
+    }
+    int startRow = height/2 - 1 - 3, startCol;
+    for (int i = 0; i <= 6; ++i) {
+        for (int j = 0; j < 82; ++j) {
+            startCol = width/2 + 5 - 1 - 41;
+            windowCanvas.draw(startCol+j, startRow+i, (char) TITLE[i][j], rand() % 16);
+        }
+    }
+
+
 
 
 
