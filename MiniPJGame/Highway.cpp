@@ -79,3 +79,15 @@ bool Highway::checkImpact(Object*& u){
             return true;
     return false;
 }
+
+Object* Highway::createObject(int i) {
+    if (typeObstacle == 0) {
+        return new Bicycle(i, y+2, x==-1);
+    } else if (typeObstacle == 1) {
+
+    } else if (typeObstacle == 2) {
+
+    } else if (typeObstacle == 3) {
+
+    } 
+}
