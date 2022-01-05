@@ -38,7 +38,14 @@ void drawTiTle() {
     startCol = width / 2 + 5 - 1 - (int) press.size() / 2 - 20;
     windowCanvas.draw(startCol, startRow + 7, press[0], 15);
 
-    windowCanvas.drawScreen();    
+    windowCanvas.drawScreen();
+
+    do {
+        char tmp = getch();
+        if (tmp == 13) {
+            break;
+        }
+    } while (true);    
 
 
 
