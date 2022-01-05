@@ -28,3 +28,18 @@ void drawPixel(Pixel u){
     GotoXY(u.x, u.y);
     cout << u.c;
 }
+
+void windowCanvas::draw(int x, int y, char c, int co){
+    if (x>=xR || x<xL || y>=yR || y<yL) return;
+    a[x][y] = c;
+    color[x][y] = co;
+}
+
+void windowCanvas::draw(int x, int y, string s, int co){
+    for (int i=0, ii=s.size(); i<ii; ++i){
+        if (x+i>=xR || x+i<xL || y>=yR || y<yL) continue;
+        a[x+i][y] = s[i];
+        color[x+i][y] = co;
+    }
+}
+
