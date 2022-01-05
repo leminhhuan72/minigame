@@ -45,7 +45,11 @@ void drawTiTle() {
         if (tmp == 13) {
             break;
         }
-    } while (true);    
+    } while (true);
+
+    windowCanvas.clearScreen();
+    windowCanvas.drawScreen();
+}    
 
 
 
