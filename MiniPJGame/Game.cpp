@@ -133,6 +133,9 @@ string Game::getPlayerName(){
         windowCanvas.draw(20, startRow, "Enter your name (Enter to finish): ", 10);
         GotoXY(55+int(name.size()), startRow);
         tmp = getch();
+        if (tmp == 32){ // space
+            // pass
+        }else
         if (tmp == 13)
             break;
         else
@@ -257,6 +260,22 @@ void Game::start(){
 
 void Game::loadGame(){
 
+}
+
+bool cmp(const pair<string, int> &u, const pair<string, int> &v){
+    return u.second == v.second ? u.first < v.first : u.second > v.second;
+}
+
+void Game::loadData(){
+    ifstream fi;
+    fi.open("Data//data.txt");
+    int n = 0;
+    fi >> n;
+    dataLst.resize(n);
+    for (int i=0; i<n; ++i)
+        cin >> dataLst[i].first >> dataLst[i].second;
+    sort(dataLst.begin(), dataLst.end(), cmp);
+    fi.close();
 }
 
 void Game::startSetting() {

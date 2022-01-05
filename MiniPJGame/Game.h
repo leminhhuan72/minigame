@@ -2,6 +2,7 @@
 #define _Game_
 
 #include <ctime>
+#include <fstream>
 #include "Object.h"
 #include "Player.h"
 #include "windowControl.h"
@@ -21,6 +22,7 @@ class Game{
     bool turnOnMusic;
     windowCanvas windowCanvas;
     double speed;
+    vector<pair<string, int> > dataLst; // name, level
 public:
     Game():windowCanvas(){
         FixConsoleWindow();
@@ -34,6 +36,7 @@ public:
     void startGame();
     int showMenu1();
     void start();
+    void loadData();
     void loadGame();
     void startSetting();
     int showMenu2();
