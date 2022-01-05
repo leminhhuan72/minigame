@@ -313,7 +313,7 @@ int Game::loadGame(){
             string h=dataLst[i+l].first;
             while(int(h.size()) < 14)
                 h.push_back(' ');
-            h += to_string(dataLst[i+l].second);
+            h += to_string(dataLst[i+l].second+1);
             while(int(h.size()) < 19)
                 h.push_back(' ');
             startCol = width/2 + 5 -1 - int(h.size())/2;
