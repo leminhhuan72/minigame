@@ -13,3 +13,18 @@ void GotoXY(int x, int y) {
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+//void clearScreen(int x, int y, int xx, int yy){
+//    string s = "";
+//    for (int i=x; i<=xx;++i)
+//        s.push_back(' ');
+//    for (int i=y;i<=yy;++i){
+//        GotoXY(x,i);
+//        cout << s;
+//    }
+//}
+
+void drawPixel(Pixel u){
+    GotoXY(u.x, u.y);
+    cout << u.c;
+}
