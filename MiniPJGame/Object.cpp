@@ -34,12 +34,7 @@ bool Object::isUpdate(){
     return false;
 }
 
-bool Object::isImpactX(int x){
-    return (this->x <= x && x <= this->x + this->w);
-}
-bool Object::isImpactY(int y){
-    return (this->y <= y && y <= this->y + this->h);
-}
+
 
 int Object::getX(){
     return x;
