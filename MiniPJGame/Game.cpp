@@ -429,7 +429,7 @@ int Game::levelSetting(){
     }
 
     windowCanvas.drawScreen();
-    vector<string> a = {"LEVEL 01", "LEVEL 02", "LEVEL 03", "LEVEL 04", "LEVEL 05", "TURN BACK"};
+    vector<string> a = {"SPEED 01", "SPEED 02", "SPEED 03", "SPEED 04", "SPEED 05", "TURN BACK"};
     int startRow = height/2 -1 - int(a.size())/2, startCol;
     int tmp;
     int m = a.size();
