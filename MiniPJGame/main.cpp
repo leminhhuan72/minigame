@@ -15,6 +15,11 @@ const int TITLE[][82] = { { 32,95,95,95,95,95,32,32,     32,32,32,32,32,32,32,		
 
 vector <string> press = {"(PRESS ENTER TO CONTINUE)"};
 
+void drawTiTle() {
+    windowCanvas windowCanvas;
+    windowCanvas.resetLim();
+
+
 
 int main(){
     srand(time(nullptr));
