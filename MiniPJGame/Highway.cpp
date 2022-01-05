@@ -16,9 +16,7 @@ void Highway::draw(windowCanvas &windowCanvas){
     }
 }
 
-void Highway::isImpact(Object*& u){
-    isImp |= u->isImpactY(y) || u->isImpactY(y+6) || u->isImpactY(y+3);
-}
+
 
 bool Highway::isUpdate(){
     if (isUp){
