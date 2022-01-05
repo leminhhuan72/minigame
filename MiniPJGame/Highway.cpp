@@ -92,3 +92,7 @@ Object* Highway::createObject(int i) {
     } 
     return new Owl(i, y+2, x==-1);
 }
+
+double Highway::speedSetting(double t) {
+    return 0.5 / t;
+}
