@@ -15,6 +15,13 @@
 
 using namespace std;
 
+struct dataSave{
+    string name;
+    int level;
+    double speed;
+    dataSave(string n = "", int lv = 0, double spd = 0): name(n), level(lv), speed(spd){}
+};
+
 class Game{
     double delta, timepass;
     int width, height, level;
@@ -22,7 +29,7 @@ class Game{
     bool turnOnMusic;
     windowCanvas windowCanvas;
     double speed;
-    vector<pair<string, int> > dataLst; // name, level
+    vector<dataSave > dataLst; // name, level
 public:
     Game():windowCanvas(){
         loadData();

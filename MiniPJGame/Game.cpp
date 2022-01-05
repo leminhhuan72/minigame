@@ -74,7 +74,7 @@ vector<Highway> Game::buildLevel(int u){
     int lane = u/3 +1 ;
     int dis = u%3;
     for (int i=0;i<lane; ++i)
-        a.emplace_back((i&1?1:-1), 8+i*7, dis, speed);
+        a.emplace_back(((rand()%19)&1?1:-1), 8+i*7, dis, speed);
     return a;
 }
 
@@ -180,7 +180,7 @@ void Game::start(){
 
     int tmp;
     timepass = 0;
-    double timing = 0;
+    double timing = clock();
     bool isPause = false;
     auto updateGame = [&](){
         while(isRunning){
@@ -192,6 +192,7 @@ void Game::start(){
             if (p->isImpactY(3)){
                 soundControl->playSound("Sound//levelup.wav");
                 ++level;
+                level = min(level, 11);
                 wayLst.clear();
                 wayLst = buildLevel(level);
                 delete p;
@@ -266,8 +267,8 @@ void Game::start(){
 //    if(showEnding())start();
 }
 
-bool cmp(const pair<string, int> &u, const pair<string, int> &v){
-    return u.second == v.second ? u.first < v.first : u.second > v.second;
+bool cmp(const dataSave &u, const dataSave &v){
+    return u.level == v.level ? u.speed > v.speed : u.level > v.level;
 }
 
 int Game::loadGame(){
@@ -280,17 +281,17 @@ int Game::loadGame(){
         }else
             windowCanvas.draw(i, j, ' ', 7);
     }
-    vector<string> a = {"+-------------------+",
-                        "|GAME          LEVEL|",
-                        "|-------------------|",
-                        "|                   |",
-                        "|                   |",
-                        "|                   |",
-                        "|                   |",
-                        "|                   |",
-                        "|                   |",
-                        "|                   |",
-                        "+-------------------+"};
+    vector<string> a = {"+---------------------------+",
+                        "|GAME          LEVEL   SPEED|",
+                        "|---------------------------|",
+                        "|                           |",
+                        "|                           |",
+                        "|                           |",
+                        "|                           |",
+                        "|                           |",
+                        "|                           |",
+                        "|                           |",
+                        "+---------------------------+"};
     int startRow = height/2 -1 - int(a.size())/2, startCol;
     int m = a.size();
     int cur=0, n = dataLst.size(), l, r, tmp;
@@ -310,11 +311,14 @@ int Game::loadGame(){
         }
 
         for (int i=0; i+l<r; ++i){
-            string h=dataLst[i+l].first;
+            string h=dataLst[i+l].name;
             while(int(h.size()) < 14)
                 h.push_back(' ');
-            h += to_string(dataLst[i+l].second+1);
-            while(int(h.size()) < 19)
+            h += to_string(dataLst[i+l].level+1);
+            while(int(h.size()) < 22)
+                h.push_back(' ');
+            h += to_string(int(dataLst[i+l].speed));
+            while(int(h.size()) < 27)
                 h.push_back(' ');
             startCol = width/2 + 5 -1 - int(h.size())/2;
             if (i+l == cur)
@@ -343,8 +347,9 @@ int Game::loadGame(){
 
     }while(true);
     if (cur == n) return -1;
-    playerName = dataLst[cur].first;
-    level = dataLst[cur].second;
+    playerName = dataLst[cur].name;
+    level = dataLst[cur].level;
+    speed = dataLst[cur].speed;
     return 1;
 }
 
@@ -355,7 +360,7 @@ void Game::loadData(){
     fi >> n;
     dataLst.resize(n);
     for (int i=0; i<n; ++i)
-        fi >> dataLst[i].first >> dataLst[i].second;
+        fi >> dataLst[i].name >> dataLst[i].level >> dataLst[i].speed;
     sort(dataLst.begin(), dataLst.end(), cmp);
     fi.close();
 }
@@ -507,11 +512,18 @@ void Game::musicSetting() {
 void Game::updatePlayerData(){
     bool k =false;
     for(int i=0, ii=dataLst.size(); i<ii; ++i)
-    if (dataLst[i].first == playerName){
-        dataLst[i].second = level;
+    if (dataLst[i].name == playerName){
+        dataLst[i].level = level;
+        dataLst[i].speed = speed;
         k = true;
         break;
     }
     if (!k)
-        dataLst.push_back(make_pair(playerName, level));
+        dataLst.emplace_back(playerName, level, speed);
+    ofstream fo;
+    fo.open("Data//data.txt");
+    fo << dataLst.size() << endl;
+    for (int i=0, ii=dataLst.size(); i<ii; ++i)
+        fo << dataLst[i].name << ' ' << dataLst[i].level << ' ' << dataLst[i].speed << endl;
+    fo.close();
 }
