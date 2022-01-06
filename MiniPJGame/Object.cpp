@@ -6,7 +6,19 @@ void Object::moveTo(int x, int y){
     this->y += y;
 }
 
-bool Object::isImpact(Object*& other){
+int Object::getWidth(){
+    return w;
+}
+
+bool Object::isUpdate(){
+    if (isUp){
+        isUp = false;
+        return true;
+    }
+    return false;
+}
+
+bool Object::isImpact(Object*& other) {
 ////    cout << x << ' ' << y << endl;
 //    return (isImpactX(other->x) || other->isImpactX(x)) && (isImpactY(other->y) || other->isImpactY(y));
     int x1 = max(x, other->x), y1 = max(y, other->y);
@@ -18,18 +30,6 @@ bool Object::isImpact(Object*& other){
             playImpactSound();
             return true;
         }
-    }
-    return false;
-}
-
-int Object::getWidth(){
-    return w;
-}
-
-bool Object::isUpdate(){
-    if (isUp){
-        isUp = false;
-        return true;
     }
     return false;
 }
