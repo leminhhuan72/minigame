@@ -74,6 +74,6 @@ void windowCanvas::clearScreen(){
     for (int x=0; x<n; ++x)
     for (int y=0; y<m; ++y){
         a[x][y] = ' ';
-        color[x][y] = 7;
+        color[x][y] = 9;
     }
 }
