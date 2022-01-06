@@ -9,6 +9,7 @@ void Game::startGame(){
         switch (showMenu1()){
         case 0:
             playerName = getPlayerName();
+            level = 0;
             updatePlayerData();
             start();
             break;
