@@ -183,8 +183,14 @@ void Game::start(){
     timepass = 0;
     double timing = clock();
     bool isPause = false;
+    bool isSetting = false;
+    bool isDoneDraw = false;
     auto updateGame = [&](){
         while(isRunning){
+            if (isSetting){
+                isDoneDraw = true;
+                continue;
+            }
             if (isPause){
                 showEnding();
                 continue;
@@ -262,6 +268,19 @@ void Game::start(){
         }else
         if (tmp == 77){
             p->moveTo(1, 0);
+        }
+        if (tmp == 27){
+            isSetting = true;
+            isDoneDraw = false;
+            while(!isDoneDraw)
+                continue;
+            windowCanvas.clearScreen();
+            startSetting();
+            soundControl->playBackGround2();
+            windowCanvas.setLim(0,0, width, height);
+            windowCanvas.clearScreen();
+            timing = clock();
+            isSetting = false;
         }
     }
     t1.join();

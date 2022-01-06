@@ -64,6 +64,7 @@ void windowCanvas::resetLim(){
 }
 
 void windowCanvas::setLim(int x1, int y1, int x2, int y2){
+    x2 = min(x2, n), y2 = min(y2, m);
     xL = x1;
     xR = x2;
     yL = y1;
